@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Arena - Sports News & Highlights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#f87171',
+                    }
+                }
+            }
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200">
+    <!-- Header with navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <!-- Logo image - replace the src with your actual logo image URL -->
+                    <img 
+                        src="your-logo-image-url-here.png" 
+                        alt="Campus Arena Logo" 
+                        class="w-12 h-12 rounded-full mr-2 object-cover border-2 border-blue-600"
+                        id="header-logo"
+                    >
+                    <a href="#" class="text-2xl font-bold tracking-wider dark:text-white">CAMPUS ARENA</a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="#" class="font-medium hover:text-primary transition">Home</a>
+                    <a href="#" class="font-medium hover:text-primary transition">News</a>
+                    <a href="#" class="font-medium hover:text-primary transition">Video</a>
+                    <a href="#" class="font-medium hover:text-primary transition">Schedule & Results</a>
+                    <a href="#" class="font-medium hover:text-primary transition">Profile Athletes</a>
+                    <a href="login.html" class="font-medium text-blue-600 transition" id="header-login-btn">Login</a>
+                    <div class="relative">
+                        <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </nav>
+                
+                <button class="md:hidden text-gray-800 dark:text-white" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu, hidden by default -->
+            <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
+                <a href="#" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="#" class="block py-2 hover:text-primary transition">News</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Video</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Schedule & Results</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Profile Athletes</a>
+                <a href="login.html" class="block py-2 text-blue-600 transition" id="mobile-login-btn">Login</a>
+                <div class="relative mt-2">
+                    <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                    <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        <!-- Hero section with featured article -->
+        <section class="mb-12">
+            <div class="grid md:grid-cols-5 gap-4 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                <div class="md:col-span-3 h-96 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1508344928928-7165b0c40aa6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" 
+                         alt="Baseball player" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-700">
+                    <div class="absolute bottom-0 left-0 p-4 text-white z-20">
+                        <div class="flex mb-2">
+                            <span class="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-sm">HOME RUN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-2 p-6 flex flex-col justify-center">
+                    <div class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm mb-3">NEWS</div>
+                    <h2 class="text-2xl font-bold mb-3">FOSTER: Aaron Judge has been as complete a hitter as any team could want</h2>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                        <span>By David Foster • 2hrs ago</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-sm">
+                        Aaron Judge has the look of a superhero, but it's S-F-Z (speed, power, contact) improvements mean contact is up, strikeouts are down. Not only has he been like a superhero, he's actually been era as he destroys opposing team's pitchers and has become must-watch.
+                    </p>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded w-max transition">
+                        VIEW MORE
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News section -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold mb-6">LATEST NEWS</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+                <!-- News item 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                             alt="NBA Draft" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <div class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm mb-2">NBA</div>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">2hrs ago</p>
+                        <h3 class="font-bold mb-2 text-sm">Redrafting the 2016 NBA Draft, from Simmons and Siakam to VanVleet</h3>
+                    </div>
+                </div>
+
+                <!-- News item 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1628891890467-b79f2c8ba9dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                             alt="NBA Draft" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <div class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm mb-2">HOOPS</div>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">3hrs ago</p>
+                        <h3 class="font-bold mb-2 text-sm">Redrafting the 2018 NBA Draft, Embiid moves and Siakam to VanVleet</h3>
+                    </div>
+                </div>
+
+                <!-- News item 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1624526267942-ab0c0e53d259?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" 
+                             alt="Soccer Match" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <div class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm mb-2">SOCCER</div>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">5hrs ago</p>
+                        <h3 class="font-bold mb-2 text-sm">Stones and Haaland inspire stunning late turnaround as City edge past Dortmund</h3>
+                    </div>
+                </div>
+
+                <!-- News item 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80" 
+                             alt="Canelo-GGG" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <div class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm mb-2">BOXING</div>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">4hrs ago</p>
+                        <h3 class="font-bold mb-2 text-sm">How to bet Canelo-GGG 3</h3>
+                    </div>
+                </div>
+
+                <!-- News item 5 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1026&q=80" 
+                             alt="NFL" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <div class="inline-block bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-sm mb-2">FANTASY</div>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">6hrs ago</p>
+                        <h3 class="font-bold mb-2 text-sm">Tough lineup decisions? Get Week 2 fantasy football start 'em, sit 'em advice</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sport Categories Grid -->
+        <section class="mb-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Sepak Bola -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 4.07C15.28 4.35 17.23 5.6 18.5 7.5L16.5 9.5L13 6V4.07ZM9.5 6.5L12.5 9.5L11 11L8 8L9.5 6.5ZM4.26 12.03C4.1 11.36 4 10.69 4 10C4 8.41 4.41 6.92 5.13 5.65L7.5 8L6 9.5L4.26 12.03ZM5.5 16.5L8 14L9.5 15.5L7 18C6.33 17.58 5.73 17.07 5.22 16.5H5.5ZM12 20C11.3 20 10.63 19.91 10 19.74L12.5 17.25L14 18.75L12 20.75V20ZM18.5 17C17.79 17.91 16.89 18.64 15.87 19.11L14.5 17.5L16 16L18.5 17ZM19.74 10C19.9 10.64 20 11.31 20 12C20 12.94 19.82 13.84 19.5 14.67L17 12.5L18.5 11L19.74 10Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">Sepak Bola</span>
+                </a>
+
+                <!-- Basket Ball -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.09 11.25C18.16 9.74 18.83 7.97 18.95 6.15C20.16 7.05 21 8.46 21 10.04C21 13.15 18.6 15.19 17.09 11.25Z"/>
+                        <path d="M6.25 12.46C5.81 13.16 5.14 14.42 5.05 16.54C4.15 15.74 3 14.37 3 12.76C3 9.96 5.32 7.8 6.25 12.46Z"/>
+                        <path d="M12 22C10.12 22 8.33 21.44 6.83 20.39C7.32 17.76 8.68 15.63 10.62 14.46C11.03 14.25 11.42 14.09 11.79 13.96C11.93 13.93 12.07 13.93 12.21 13.96C12.58 14.09 12.97 14.25 13.38 14.46C15.32 15.63 16.68 17.76 17.17 20.39C15.67 21.44 13.88 22 12 22Z"/>
+                        <path d="M17.42 6.35C17.25 8.43 16.39 10.39 15.03 11.9C14.67 12.3 14.27 12.67 13.83 13C13.36 13.33 12.69 13.33 12.22 13C11.78 12.67 11.38 12.3 11.02 11.9C9.66 10.39 8.8 8.43 8.63 6.35C8.57 5.81 8.54 5.26 8.54 4.69C8.54 4.39 8.55 4.09 8.58 3.79C8.62 3.37 8.85 3 9.18 2.75C10.03 2.1 10.99 1.63 12.04 1.39C12.05 1.39 12.05 1.39 12.06 1.39C12.33 1.32 12.6 1.42 12.78 1.64C12.97 1.86 13.01 2.16 12.9 2.42C12.89 2.43 12.89 2.44 12.88 2.46C12.68 2.94 12.56 3.46 12.56 4.01C12.56 5.34 13.38 6.46 14.56 6.9C14.98 7.05 15.41 7.12 15.86 7.12C16.31 7.12 16.74 7.05 17.14 6.91C17.39 6.83 17.66 6.94 17.82 7.16C17.98 7.38 18.01 7.67 17.9 7.91C17.8 8.13 17.64 8.48 17.42 6.35Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">Basket Ball</span>
+                </a>
+
+                <!-- Softball -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM5.61 16.78C4.6 15.45 4 13.8 4 12C4 11.46 4.06 10.94 4.17 10.43L8.35 14.61L5.61 16.78ZM12 20C10.88 20 9.81 19.77 8.84 19.37L11.12 15.93L15.41 20.23C14.37 20.72 13.22 21 12 21V20ZM16.5 18.89L12.21 14.6L14.58 11.11L19.83 16.36C19.11 17.44 17.89 18.33 16.5 18.89ZM19.25 14.08L14.92 9.75L16.16 8C17.5 9.06 18.5 10.57 19.01 12.32L19.26 14.08H19.25ZM14.33 7.4L12.28 10.38L8.07 6.17C9.53 5.17 11.07 4.65 12.71 4.93L14.33 7.4ZM7.33 7.05L11.31 11.03L8.28 15.5C6.46 14.62 5.09 12.89 4.7 10.84L7.34 7.05H7.33Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">SoftBall</span>
+                </a>
+
+                <!-- Aquatik -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 12H4C6.5 12 7.5 10 9 10C10.5 10 11.5 12 14 12C16.5 12 17.5 10 19 10C20.5 10 21.5 12 22 12V14C21.5 14 20.5 12 19 12C17.5 12 16.5 14 14 14C11.5 14 10.5 12 9 12C7.5 12 6.5 14 4 14H2V12ZM2 16H4C6.5 16 7.5 14 9 14C10.5 14 11.5 16 14 16C16.5 16 17.5 14 19 14C20.5 14 21.5 16 22 16V18C21.5 18 20.5 16 19 16C17.5 16 16.5 18 14 18C11.5 18 10.5 16 9 16C7.5 16 6.5 18 4 18H2V16ZM17 8C16.29 8 15.62 7.8 15.08 7.42C14.52 7.8 13.81 8 13 8C12.19 8 11.5 7.8 10.94 7.42C10.38 7.8 9.69 8 9 8C8.19 8 7.5 7.8 6.94 7.42C6.38 7.8 5.69 8 5 8V6C5.38 6 5.7 5.75 6 5.4V4C6.38 4 6.7 3.75 7 3.4V2H8V3.4C8.3 3.75 8.62 4 9 4C9.38 4 9.7 3.75 10 3.4V2H11V3.4C11.3 3.75 11.62 4 12 4C12.38 4 12.7 3.75 13 3.4V2H14V3.4C14.3 3.75 14.62 4 15 4C15.38 4 15.7 3.75 16 3.4V2H17V3.4C17.3 3.75 17.62 4 18 4V5.4C18.3 3.75 18.62 6 19 6V8C18.31 8 17.62 7.8 17.08 7.42C16.52 7.8 15.81 8 15 8H17Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">Aquatik</span>
+                </a>
+
+                <!-- Bela Diri -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 2L11.6 8.7L10.39 7.66L14 5L13 2H10L8 5L9.04 6.19L2 12.5L4.5 15.5L11.7 10.67L16.67 17L22 12V7L19.8 2ZM5.5 14.33L4.33 13L9.5 9L10.67 10.33L5.5 14.33ZM15.5 15.5L12.67 11.67L15.5 9.5L18.5 11.5L15.5 15.5Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">Bela Diri</span>
+                </a>
+
+                <!-- Voli -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13.9 13.89L13.76 14.94L12.58 15.05L10.91 16.41L9.74 16.29L9.88 15.24L10.94 14.06L12 13L10.94 12L9.88 10.76L9.74 9.71L10.91 9.59L12.58 10.94L13.76 11.05L13.9 12.11L12.91 13.17L13.9 13.89ZM16.58 16.41L15.41 16.29L15.53 15.11L16.88 13.44L18.06 13.53L18.18 14.71L16.82 16.41H16.58ZM18.06 10.47L16.88 10.58L15.53 8.92L15.41 7.74L16.58 7.63L18.24 8.99L18.35 10.16L18.06 10.47ZM8.47 16.29L7.29 16.41L5.62 14.76L5.53 13.58L6.7 13.47L8.35 15.11L8.47 16.29ZM5.53 10.43L5.62 9.25L7.29 7.59L8.47 7.71L8.35 8.88L6.7 10.55L5.53 10.43Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">Voli</span>
+                </a>
+
+                <!-- Badminton -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.3 2.55C13.76 2.46 15.34 3.13 16.44 4.33L15.38 5.39C14.55 4.37 13.5 3.83 12.06 3.93C9.57 4.11 8.37 6.23 8.37 8.68C8.37 11.8 10.35 14.21 13.2 14.43C15.17 14.59 17.1 13.27 17.54 11.54C17.6 11.36 17.74 11.31 17.97 11.31H19.89C20.05 11.31 20.11 11.45 20.08 11.55C19.53 14.91 16.47 17.27 13.17 16.97C9.5 16.63 6.82 13.32 6.82 8.7C6.82 5.34 8.87 2.83 12.3 2.55ZM7.32 22H5.33L5.4 17.23H7.38L7.32 22ZM12.77 22H10.78L10.85 17.23H12.83L12.77 22ZM18.21 22H16.22L16.29 17.23H18.27L18.21 22Z"/>
+                    </svg>
+                    <span class="font-bold text-lg">Badminton</span>
+                </a>
+
+                <!-- More -->
+                <a href="#" class="bg-gray-200 dark:bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition text-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                        <span class="text-4xl font-bold">+</span>
+                    </div>
+                    <span class="font-bold text-lg">MORE</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Latest Highlights with YouTube Embedded Videos -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold mb-6">LATEST HIGHLIGHTS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Main highlight with embedded YouTube video -->
+                <div class="md:col-span-2 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative aspect-video overflow-hidden">
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/2XH9gYRqZ-0" 
+                            title="Boxing Highlights" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">What time is Adrian Peterson vs. Le'Veon Bell today? PPV schedule, main card start time for 2022 boxing match between ex-NFL stars</h3>
+                    </div>
+                </div>
+
+                <!-- Sidebar highlights with embedded YouTube videos -->
+                <div class="space-y-4">
+                    <!-- Video item 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                        <div class="relative aspect-video overflow-hidden">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/nXePJDi4p68" 
+                                title="NBA 2K23 Highlights" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-bold text-sm mb-1">Who is the best PF in NBA 2K23?</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">2hrs ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Video item 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                        <div class="relative aspect-video overflow-hidden">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/OhfF-JbE2_I" 
+                                title="Jake Paul vs AnEsonGib" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-bold text-sm mb-1">Revisiting Jake Paul vs. AnEsonGib fight ahead of GR's bout vs. Austin McBroom</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">3hrs ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Video item 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                        <div class="relative aspect-video overflow-hidden">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/PJMwpHhcZtE" 
+                                title="James Harden Highlights" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-bold text-sm mb-1">James Harden no longer highest-rated SG in NBA 2K</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">5hrs ago</p>
+                        </div>
+                    </div>
+
+                    <!-- Video item 4 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                        <div class="relative aspect-video overflow-hidden">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/v0wCgPm-0ao" 
+                                title="USMNT World Cup" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-bold text-sm mb-1">USMNT roster for September World Cup tuneups unveiled</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs">7hrs ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <!-- Footer logo - use the same image as the header -->
+                <div class="flex items-center mb-2">
+                    <img 
+                        src="your-logo-image-url-here.png" 
+                        alt="Campus Arena Logo" 
+                        class="w-10 h-10 rounded-full mr-2 object-cover border-2 border-blue-600"
+                    >
+                    <div class="text-2xl font-bold tracking-wider">CAMPUS ARENA</div>
+                </div>
+                <div class="text-sm text-gray-400 mb-6">
+                    <p>Presented By:</p>
+                    <p class="text-lg font-semibold">Universitas Airlangga</p>
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="hover:text-primary"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="text-xs text-gray-400">
+                    <p>&copy; 2023 Campus Arena. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Login button handlers
+        const headerLoginBtn = document.getElementById('header-login-btn');
+        const mobileLoginBtn = document.getElementById('mobile-login-btn');
+        
+        if (headerLoginBtn) {
+            headerLoginBtn.addEventListener('click', function(e) {
+                // For demo purposes - in a real app this would navigate to login.html
+                console.log('Navigating to login page...');
+            });
+        }
+        
+        if (mobileLoginBtn) {
+            mobileLoginBtn.addEventListener('click', function(e) {
+                // Close mobile menu
+                mobileMenu.classList.add('hidden');
+                // For demo purposes
+                console.log('Navigating to login page...');
+            });
+        }
+    </script>
+</body>
+</html>

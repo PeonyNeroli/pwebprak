@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Arena - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#f87171',
+                    }
+                }
+            }
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 hidden md:block bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center">
+                    <img 
+                        src="your-logo-image-url-here.png" 
+                        alt="Campus Arena Logo" 
+                        class="w-10 h-10 rounded-full mr-2 object-cover border-2 border-blue-600"
+                    >
+                    <div class="font-bold text-xl">CAMPUS ARENA</div>
+                </div>
+                <button id="sidebar-close" class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mt-5 px-2">
+                <div class="mb-4">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Main</p>
+                    <a href="dashbordadmin.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-white mb-1">
+                        <i class="fas fa-tachometer-alt w-5 h-5 mr-2"></i>
+                        Dashboard
+                    </a>
+                    <a href="newsmanagementadmin.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-newspaper w-5 h-5 mr-2"></i>
+                        News Management
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-video w-5 h-5 mr-2"></i>
+                        Video Content
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-calendar-alt w-5 h-5 mr-2"></i>
+                        Events & Schedule
+                    </a>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Organization</p>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-users w-5 h-5 mr-2"></i>
+                        User Management
+                    </a>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">System</p>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-cog w-5 h-5 mr-2"></i>
+                        Settings
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-bell w-5 h-5 mr-2"></i>
+                        Notifications
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-100 dark:hover:bg-red-900 mb-1">
+                        <i class="fas fa-sign-out-alt w-5 h-5 mr-2"></i>
+                        Logout
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Header -->
+            <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center justify-between px-4 py-3">
+                    <div class="flex items-center">
+                        <button id="sidebar-toggle" class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white mr-3">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                        <h1 class="text-xl font-semibold">Dashboard</h1>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <!-- Dark mode toggle -->
+                        <button id="dark-mode-toggle" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:block"></i>
+                        </button>
+                        
+                        <!-- Notifications -->
+                        <div class="relative">
+                            <button class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
+                                <i class="fas fa-bell"></i>
+                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">3</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Admin profile -->
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2">
+                                <span>JD</span>
+                            </div>
+                            <span class="text-sm font-medium">John Doe</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Content Area -->
+            <main class="flex-1 overflow-y-auto p-4">
+                <!-- Overview Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <!-- Total Users Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Total Users</p>
+                                <h3 class="text-2xl font-bold">8,249</h3>
+                                <p class="text-green-500 text-sm flex items-center">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    <span>12.5% since last month</span>
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page Views Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Page Views</p>
+                                <h3 class="text-2xl font-bold">142,382</h3>
+                                <p class="text-green-500 text-sm flex items-center">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    <span>8.2% since last week</span>
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- New Articles Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">New Articles</p>
+                                <h3 class="text-2xl font-bold">38</h3>
+                                <p class="text-red-500 text-sm flex items-center">
+                                    <i class="fas fa-arrow-down mr-1"></i>
+                                    <span>5.1% since last week</span>
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                                <i class="fas fa-newspaper text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Revenue Card -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Ad Revenue</p>
+                                <h3 class="text-2xl font-bold">$4,825</h3>
+                                <p class="text-green-500 text-sm flex items-center">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    <span>18.3% since last month</span>
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
+                                <i class="fas fa-dollar-sign text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chart and Activity Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <!-- Traffic Chart -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold">Website Traffic</h3>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 text-xs bg-primary text-white rounded">Daily</button>
+                                <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">Weekly</button>
+                                <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">Monthly</button>
+                            </div>
+                        </div>
+                        <div class="h-64">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold">Recent Activity</h3>
+                            <button class="text-primary hover:text-blue-700 text-sm">View All</button>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- Activity item 1 -->
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-3">
+                                    <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">New article published</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">FOSTER: Aaron Judge has been as complete a hitter...</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">10 mins ago</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Activity item 2 -->
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-3">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">New user registered</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">User ID: #58942</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">25 mins ago</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Activity item 3 -->
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-3">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Article updated</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Redrafting the 2016 NBA Draft...</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">42 mins ago</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Activity item 4 -->
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-3">
+                                    <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Comment deleted</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Comment ID: #12453</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">1 hour ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Content and Popular Categories -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Recent Content -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold">Recent Content</h3>
+                            <div class="flex">
+                                <button class="text-primary hover:text-blue-700 text-sm mr-2">
+                                    <i class="fas fa-plus-circle mr-1"></i>
+                                    Add New
+                                </button>
+                                <button class="text-primary hover:text-blue-700 text-sm">View All</button>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        <th class="px-4 py-2">Title</th>
+                                        <th class="px-4 py-2">Author</th>
+                                        <th class="px-4 py-2">Category</th>
+                                        <th class="px-4 py-2">Date</th>
+                                        <th class="px-4 py-2">Status</th>
+                                        <th class="px-4 py-2">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- Row 1 -->
+                                    <tr>
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
+                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1508344928928-7165b0c40aa6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div class="text-sm font-medium">Aaron Judge has been as complete a hitter...</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">David Foster</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Baseball</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Sep 18, 2023</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 2 -->
+                                    <tr>
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
+                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div class="text-sm font-medium">Redrafting the 2016 NBA Draft...</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Michael Jordan</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Basketball</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Sep 17, 2023</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 3 -->
+                                    <tr>
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
+                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1624526267942-ab0c0e53d259?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div class="text-sm font-medium">Stones and Haaland inspire stunning...</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Sarah Johnson</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Soccer</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Sep 16, 2023</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Draft</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 4 -->
+                                    <tr>
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
+                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div class="text-sm font-medium">How to bet Canelo-GGG 3</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Mike Tyson</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Boxing</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">Sep 15, 2023</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Archived</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Categories -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold">Popular Categories</h3>
+                            <button class="text-primary hover:text-blue-700 text-sm">View All</button>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- Category 1 -->
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400 mr-3">
+                                    <i class="fas fa-basketball-ball"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium">Basketball</h4>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">34%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 34%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 2 -->
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400 mr-3">
+                                    <i class="fas fa-futbol"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium">Soccer</h4>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">28%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                                        <div class="bg-green-600 h-2 rounded-full" style="width: 28%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 3 -->
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-400 mr-3">
+                                    <i class="fas fa-baseball-ball"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium">Baseball</h4>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">22%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 22%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 4 -->
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center text-red-600 dark:text-red-400 mr-3">
+                                    <i class="fas fa-volleyball-ball"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium">Volleyball</h4>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">16%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                                        <div class="bg-red-600 h-2 rounded-full" style="width: 16%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 5 -->
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400 mr-3">
+                                    <i class="fas fa-football-ball"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-sm font-medium">American Football</h4>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">12%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 12%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden hidden transition-opacity duration-300"></div>
+    
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center">
+                <img 
+                    src="your-logo-image-url-here.png" 
+                    alt="Campus Arena Logo" 
+                    class="w-10 h-10 rounded-full mr-2 object-cover border-2 border-blue-600"
+                >
+                <div class="font-bold text-xl">CAMPUS ARENA</div>
+            </div>
+            <button id="close-mobile-sidebar" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <nav class="mt-5 px-2">
+            <div class="mb-4">
+                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Main</p>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-white mb-1">
+                    <i class="fas fa-tachometer-alt w-5 h-5 mr-2"></i>
+                    <a href="dashbordadmin.html">Dashboard</a>
+                </a>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-newspaper w-5 h-5 mr-2"></i>
+                    <a href="newsmanagementadmin.html">News Management</a>
+                </a>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-video w-5 h-5 mr-2"></i>
+                    Video Content
+                </a>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-calendar-alt w-5 h-5 mr-2"></i>
+                    Events & Schedule
+                </a>
+            </div>
+            
+            <div class="mb-4">
+                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Organization</p>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-users w-5 h-5 mr-2"></i>
+                    User Management
+                </a>
+            </div>
+            
+            <div class="mb-4">
+                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">System</p>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-cog w-5 h-5 mr-2"></i>
+                    Settings
+                </a>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-bell w-5 h-5 mr-2"></i>
+                    Notifications
+                </a>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-100 dark:hover:bg-red-900 mb-1">
+                    <i class="fas fa-sign-out-alt w-5 h-5 mr-2"></i>
+                    Logout
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        // Initialize traffic chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('trafficChart').getContext('2d');
+            const trafficChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Page Views',
+                        data: [4500, 5200, 4800, 5900, 6500, 7200, 8100],
+                        backgroundColor: 'rgba(93, 92, 222, 0.2)',
+                        borderColor: '#5D5CDE',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointBackgroundColor: '#5D5CDE',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }, {
+                        label: 'Unique Visitors',
+                        data: [2800, 3100, 2950, 3400, 3800, 4200, 4600],
+                        backgroundColor: 'rgba(252, 165, 165, 0.2)',
+                        borderColor: '#F87171',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointBackgroundColor: '#F87171',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 8
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                drawBorder: false
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Update chart on theme change
+            function updateChartTheme(isDark) {
+                trafficChart.options.scales.y.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+                trafficChart.options.scales.x.color = isDark ? '#fff' : '#666';
+                trafficChart.options.scales.y.color = isDark ? '#fff' : '#666';
+                trafficChart.options.plugins.legend.labels.color = isDark ? '#fff' : '#666';
+                trafficChart.update();
+            }
+            
+            // Initialize chart theme based on current mode
+            updateChartTheme(document.documentElement.classList.contains('dark'));
+            
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            darkModeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                updateChartTheme(isDark);
+            });
+            
+            // Mobile sidebar controls
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const mobileSidebar = document.getElementById('mobile-sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const closeMobileSidebar = document.getElementById('close-mobile-sidebar');
+            
+            function openSidebar() {
+                mobileSidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    sidebarOverlay.classList.remove('opacity-0');
+                }, 10);
+            }
+            
+            function closeSidebar() {
+                mobileSidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    sidebarOverlay.classList.add('hidden');
+                }, 300);
+            }
+            
+            sidebarToggle.addEventListener('click', openSidebar);
+            closeMobileSidebar.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        });
+    </script>
+</body>
+</html>
