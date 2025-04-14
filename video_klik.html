@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Highlight: FST 2 - 0 FTMM | Quarter Final - Campus Arena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#F03E3E',
+                        darkBg: '#1a1a1a',
+                        darkCard: '#252525'
+                    }
+                }
+            }
+        }
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</head>
+<body class="bg-white dark:bg-darkBg text-gray-900 dark:text-gray-100">
+    <!-- Header Navigation -->
+    <header class="bg-white dark:bg-gray-900 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0MjhiZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1nbG9iZSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMTIgMnYyMCIvPjxwYXRoIGQ9Ik0yIDEyaDIwIi8+PC9zdmc+" alt="Logo" class="h-12 w-12 rounded-full border-2 border-blue-500">
+                        <span class="ml-3 text-xl font-bold">CAMPUS ARENA</span>
+                    </a>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="hover:text-primary transition">Home</a>
+                    <a href="#" class="hover:text-primary transition">News</a>
+                    <a href="#" class="font-medium text-primary transition">Video</a>
+                    <a href="#" class="hover:text-primary transition">Schedule & Results</a>
+                    <a href="#" class="hover:text-primary transition">Login</a>
+                </nav>
+                
+                <div class="flex items-center">
+                    <div class="relative">
+                        <input type="text" placeholder="Search here" class="bg-gray-100 dark:bg-gray-800 rounded-full py-2 px-4 w-40 lg:w-60 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute right-3 top-2.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button type="button" class="md:hidden ml-4 text-gray-600 dark:text-gray-300 hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation (hidden by default) -->
+            <div class="hidden md:hidden mt-4 pb-4">
+                <a href="#" class="block py-2 hover:text-primary">Home</a>
+                <a href="#" class="block py-2 hover:text-primary">News</a>
+                <a href="#" class="block py-2 text-primary font-medium">Video</a>
+                <a href="#" class="block py-2 hover:text-primary">Schedule & Results</a>
+                <a href="#" class="block py-2 hover:text-primary">Login</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-6">
+        <!-- Breadcrumbs -->
+        <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+            <a href="#" class="hover:text-primary">Home</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-primary">Videos</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-primary">Sports</a>
+            <span class="mx-2">/</span>
+            <span class="text-gray-700 dark:text-gray-300">Futsal</span>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Content -->
+            <div class="lg:w-2/3">
+                <!-- Video Player -->
+                <div class="bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="aspect-w-16 aspect-h-9 relative">
+                        <!-- YouTube Video Embed -->
+                        <div class="w-full h-0 pb-[56.25%] relative bg-black">
+                            <iframe 
+                                id="videoPlayer"
+                                class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Match Highlight: FST 2 - 0 FTMM | Quarter Final"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h1 class="text-2xl md:text-3xl font-bold mb-2">Match Highlight: FST 2 - 0 FTMM | Quarter Final - Futsal Dies Natalies</h1>
+                        
+                        <div class="flex flex-wrap items-center justify-between mb-4">
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2 md:mb-0">
+                                <span>05 February 2023</span>
+                                <span class="mx-2">•</span>
+                                <span>3,245 views</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                    </svg>
+                                    <span>142</span>
+                                </button>
+                                <button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-red-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2" />
+                                    </svg>
+                                    <span>18</span>
+                                </button>
+                                <button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                    </svg>
+                                    <span>Share</span>
+                                </button>
+                                <button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                    </svg>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white text-lg font-bold">
+                                        CA
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-medium">Campus Arena Official</h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm">12.3K subscribers</p>
+                                    <button class="mt-2 bg-primary text-white px-4 py-1 rounded-full text-sm hover:bg-opacity-90 transition">Subscribe</button>
+                                </div>
+                            </div>
+                            
+                            <div class="prose prose-lg dark:prose-invert max-w-none">
+                                <p class="mb-4">Watch the exciting Quarter Final match between Faculty of Science and Technology (FST) and Faculty of Technology and Management (FTMM) in the Futsal Dies Natalies tournament. FST emerged victorious with a convincing 2-0 win.</p>
+                                
+                                <h4 class="text-lg font-bold mt-4 mb-2">Match Highlights:</h4>
+                                <ul class="list-disc pl-6 mb-4 text-gray-700 dark:text-gray-300">
+                                    <li>00:15 - Opening ceremony and team introductions</li>
+                                    <li>01:32 - First half kickoff</li>
+                                    <li>03:47 - Ahmad Rizky's amazing goal (FST) - 1:0</li>
+                                    <li>05:22 - FTMM's missed opportunity</li>
+                                    <li>08:15 - Second half kickoff</li>
+                                    <li>10:43 - FST's defensive masterclass</li>
+                                    <li>12:55 - Dimas Rahman's powerful shot (FST) - 2:0</li>
+                                    <li>14:30 - Post-match celebrations and interviews</li>
+                                </ul>
+                                
+                                <p class="mb-4">FST will now advance to the semifinals where they will face the Engineering Faculty next week. Stay tuned for more coverage!</p>
+                                
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                                    <strong>Tournament:</strong> Futsal Dies Natalies 2023<br>
+                                    <strong>Location:</strong> Campus Arena Sports Hall<br>
+                                    <strong>Date:</strong> February 5, 2023<br>
+                                    <strong>Camera:</strong> Sony FX6<br>
+                                    <strong>Music:</strong> "Victory" by Campus Music Productions
+                                </p>
+                            </div>
+                            
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2 mt-6">
+                                <a href="#" class="bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:text-white dark:hover:bg-primary px-3 py-1 rounded-full text-sm transition-colors duration-200">#Futsal</a>
+                                <a href="#" class="bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:text-white dark:hover:bg-primary px-3 py-1 rounded-full text-sm transition-colors duration-200">#QuarterFinal</a>
+                                <a href="#" class="bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:text-white dark:hover:bg-primary px-3 py-1 rounded-full text-sm transition-colors duration-200">#FST</a>
+                                <a href="#" class="bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:text-white dark:hover:bg-primary px-3 py-1 rounded-full text-sm transition-colors duration-200">#FTMM</a>
+                                <a href="#" class="bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:text-white dark:hover:bg-primary px-3 py-1 rounded-full text-sm transition-colors duration-200">#DiesNatalies</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comments Section -->
+                <div class="bg-white dark:bg-darkCard rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold mb-6">Comments (2)</h2>
+                    
+                    <!-- Comment Form -->
+                    <div class="mb-8">
+                        <div class="flex mb-4">
+                            <img class="w-10 h-10 rounded-full mr-3 bg-gray-300 dark:bg-gray-700" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXIiPjxwYXRoIGQ9Ik0xOS42IDkuMmE5IDkgMCAxIDAtMTguMiAwIDkgOSAwIDEgMCAxOC4yIDB6Ii8+PHBhdGggZD0iTTE1LjggOEE1IDUgMCAwIDEgOCAzYTkgOSAwIDAgMC02LjggOS4yIDkgOSAwIDAgMCAxMC41IDcuMiA5IDkgMCAwIDAgNi44LTUuOCAxIDEgMCAwIDAgLTEuNy0xQTUgNSAwIDAgMSAxMi43IDguMiAxIDEgMCAwIDAgMTUuOCA4eiIvPjwvc3ZnPg==" alt="You">
+                            <div class="flex-1">
+                                <textarea 
+                                    class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-primary"
+                                    placeholder="Add a comment..." 
+                                    rows="3"></textarea>
+                                <div class="flex justify-end mt-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">Post Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comments List -->
+                    <div class="space-y-6">
+                        <!-- Comment 1 -->
+                        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+                            <div class="flex">
+                                <img class="w-10 h-10 rounded-full mr-3 bg-gray-300 dark:bg-gray-700" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXIiPjxwYXRoIGQ9Ik0xOS42IDkuMmE5IDkgMCAxIDAtMTguMiAwIDkgOSAwIDEgMCAxOC4yIDB6Ii8+PHBhdGggZD0iTTE1LjggOEE1IDUgMCAwIDEgOCAzYTkgOSAwIDAgMC02LjggOS4yIDkgOSAwIDAgMCAxMC41IDcuMiA5IDkgMCAwIDAgNi44LTUuOCAxIDEgMCAwIDAgLTEuNy0xQTUgNSAwIDAgMSAxMi43IDguMiAxIDEgMCAwIDAgMTUuOCA4eiIvPjwvc3ZnPg==" alt="Commenter">
+                                <div>
+                                    <div class="flex items-center mb-1">
+                                        <h4 class="font-medium mr-2">Dimas Akbar Hataputra</h4>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">17 hours ago</span>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                                    <div class="flex items-center space-x-4 text-sm">
+                                        <button class="text-gray-500 dark:text-gray-400 hover:text-primary flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                            </svg>
+                                            <span>12</span>
+                                        </button>
+                                        <button class="text-gray-500 dark:text-gray-400 hover:text-primary flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10v12m0 0l-3.5-3.5M7 22l3.5-3.5M13 2h3.5A3.5 3.5 0 0120 5.5v3.5M13 2L9.5 5.5M13 2l3.5 3.5M3 13.5h10.5A3.5 3.5 0 0117 17v3.5M3 13.5l3.5 3.5M3 13.5L6.5 10" />
+                                            </svg>
+                                            <span>Reply</span>
+                                        </button>
+                                        <button class="text-gray-500 dark:text-gray-400 hover:text-primary flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                            <span>Report</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Comment 2 -->
+                        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+                            <div class="flex">
+                                <img class="w-10 h-10 rounded-full mr-3 bg-gray-300 dark:bg-gray-700" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXIiPjxwYXRoIGQ9Ik0xOS42IDkuMmE5IDkgMCAxIDAtMTguMiAwIDkgOSAwIDEgMCAxOC4yIDB6Ii8+PHBhdGggZD0iTTE1LjggOEE1IDUgMCAwIDEgOCAzYTkgOSAwIDAgMC02LjggOS4yIDkgOSAwIDAgMCAxMC41IDcuMiA5IDkgMCAwIDAgNi44LTUuOCAxIDEgMCAwIDAgLTEuNy0xQTUgNSAwIDAgMSAxMi43IDguMiAxIDEgMCAwIDAgMTUuOCA4eiIvPjwvc3ZnPg==" alt="Commenter">
+                                <div>
+                                    <div class="flex items-center mb-1">
+                                        <h4 class="font-medium mr-2">Dimas Akbar Hataputra</h4>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">5 days ago</span>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <div class="flex items-center space-x-4 text-sm">
+                                        <button class="text-gray-500 dark:text-gray-400 hover:text-primary flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                            </svg>
+                                            <span>8</span>
+                                        </button>
+                                        <button class="text-gray-500 dark:text-gray-400 hover:text-primary flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10v12m0 0l-3.5-3.5M7 22l3.5-3.5M13 2h3.5A3.5 3.5 0 0120 5.5v3.5M13 2L9.5 5.5M13 2l3.5 3.5M3 13.5h10.5A3.5 3.5 0 0117 17v3.5M3 13.5l3.5 3.5M3 13.5L6.5 10" />
+                                            </svg>
+                                            <span>Reply</span>
+                                        </button>
+                                        <button class="text-gray-500 dark:text-gray-400 hover:text-primary flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                            <span>Report</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="lg:w-1/3 space-y-6">
+                <!-- Video Playlist Section -->
+                <div class="bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold">More Futsal Videos</h3>
+                    </div>
+                    
+                    <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <!-- Video 1 - Current Video -->
+                        <div class="p-4 bg-gray-100 dark:bg-gray-800">
+                            <div class="flex">
+                                <div class="flex-shrink-0 relative w-32 h-20 mr-3">
+                                    <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded">
+                                        <!-- Generated placeholder image -->
+                                        <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                            <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-sm text-primary">Match Highlight: FST 2 - 0 FTMM | Quarter Final</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">05 February 2023 • 3,245 views</p>
+                                    <p class="text-xs mt-1">Now Playing</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 2 -->
+                        <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer" onclick="changeVideo('https://www.youtube.com/embed/BgWQdZoW5OU', 'Semifinal: FST vs Engineering | Futsal Dies Natalies')">
+                            <div class="flex">
+                                <div class="flex-shrink-0 relative w-32 h-20 mr-3">
+                                    <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded">
+                                        <!-- Generated placeholder image -->
+                                        <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                            <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-8 h-8 bg-black bg-opacity-60 rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 rounded">
+                                        3:42
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-sm">Semifinal: FST vs Engineering | Futsal Dies Natalies</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">12 February 2023 • 2,145 views</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 3 -->
+                        <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer" onclick="changeVideo('https://www.youtube.com/embed/7KG-3L_lJF4', 'Final Match: FST vs FEB | Futsal Dies Natalies')">
+                            <div class="flex">
+                                <div class="flex-shrink-0 relative w-32 h-20 mr-3">
+                                    <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded">
+                                        <!-- Generated placeholder image -->
+                                        <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                            <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-8 h-8 bg-black bg-opacity-60 rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 rounded">
+                                        5:18
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-sm">Final Match: FST vs FEB | Futsal Dies Natalies</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">19 February 2023 • 4,562 views</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 4 -->
+                        <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer" onclick="changeVideo('https://www.youtube.com/embed/g8urdLQkMl4', 'Awards Ceremony | Futsal Dies Natalies')">
+                            <div class="flex">
+                                <div class="flex-shrink-0 relative w-32 h-20 mr-3">
+                                    <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded">
+                                        <!-- Generated placeholder image -->
+                                        <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                            <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-8 h-8 bg-black bg-opacity-60 rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 rounded">
+                                        4:05
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-sm">Awards Ceremony | Futsal Dies Natalies</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">20 February 2023 • 1,896 views</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 5 -->
+                        <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer" onclick="changeVideo('https://www.youtube.com/embed/uGe22-Pxfus', 'Tournament Recap | Futsal Dies Natalies')">
+                            <div class="flex">
+                                <div class="flex-shrink-0 relative w-32 h-20 mr-3">
+                                    <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded">
+                                        <!-- Generated placeholder image -->
+                                        <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                            <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-8 h-8 bg-black bg-opacity-60 rounded-full flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 rounded">
+                                        8:32
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-sm">Tournament Recap | Futsal Dies Natalies</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">27 February 2023 • 3,785 views</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related Sports Categories -->
+                <div class="bg-white dark:bg-darkCard rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Sports Categories</h3>
+                    
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center p-2 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3">F</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium">Futsal</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs">32 videos</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold mr-3">B</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium">Basketball</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs">48 videos</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                            <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">S</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium">Soccer</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs">37 videos</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3">V</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium">Volleyball</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs">21 videos</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                            <div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold mr-3">S</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium">Swimming</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs">15 videos</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="#" class="flex items-center justify-center text-primary hover:underline">
+                            <span>View all categories</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Tournament Info -->
+                <div class="bg-primary bg-opacity-10 dark:bg-opacity-20 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-primary mb-4">Futsal Dies Natalies 2023</h3>
+                    
+                    <div class="space-y-3 mb-4 text-gray-700 dark:text-gray-300">
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span>12 Participating Teams</span>
+                        </div>
+                        
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                            <span>Campus Arena Sports Hall</span>
+                        </div>
+                        
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>January 25 - February 20, 2023</span>
+                        </div>
+                        
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
+                            </svg>
+                            <span>Trophy + Rp 5,000,000 Prize</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="block text-center bg-primary text-white py-2 rounded-lg hover:bg-opacity-90 transition">
+                        View Tournament Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-10 pb-6 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between mb-8">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0MjhiZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1nbG9iZSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMTIgMnYyMCIvPjxwYXRoIGQ9Ik0yIDEyaDIwIi8+PC9zdmc+" alt="Logo" class="h-12 w-12">
+                        <h2 class="ml-3 text-2xl font-bold">CAMPUS ARENA</h2>
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">Your source for campus sports news, events, and updates. Follow all the action from your favorite campus teams.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.126 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.667 2.479c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">News</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Videos</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Events</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Sports</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Basketball</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Soccer</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Volleyball</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Swimming</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">All Sports</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Support</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Campus Arena. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Presented By: <span class="font-medium text-white">Universitas Airlangga</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to change video
+        function changeVideo(videoUrl, videoTitle) {
+            // Update iframe src
+            document.getElementById('videoPlayer').src = videoUrl;
+            
+            // Update page title and video title if needed
+            document.title = videoTitle + " - Campus Arena";
+            
+            // Scroll to top of video
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.hidden.md\\:hidden');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
