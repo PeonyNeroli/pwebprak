@@ -20,7 +20,7 @@
         }
 
         // Check for dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             document.documentElement.classList.add('dark');
         }
 
@@ -50,12 +50,12 @@
                 </div>
                 
                 <nav class="hidden md:flex space-x-6 items-center">
-                    <a href="#" class="font-medium hover:text-primary transition">Home</a>
+                    <a href="Homepage.html" class="font-medium hover:text-primary transition">Home</a>
                     <a href="#" class="font-medium hover:text-primary transition">News</a>
                     <a href="#" class="font-medium hover:text-primary transition">Video</a>
                     <a href="#" class="font-medium hover:text-primary transition">Schedule & Results</a>
                     <a href="#" class="font-medium hover:text-primary transition">Profile Athletes</a>
-                    <a href="login.html" class="font-medium text-blue-600 transition" id="header-login-btn">Login</a>
+                    <a href="loginpage.html" class="font-medium text-blue-600 transition" id="header-login-btn">Login</a>
                     <div class="relative">
                         <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
                         <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
@@ -69,12 +69,12 @@
             
             <!-- Mobile menu, hidden by default -->
             <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
-                <a href="#" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="Homepage.html" class="block py-2 hover:text-primary transition">Home</a>
                 <a href="#" class="block py-2 hover:text-primary transition">News</a>
                 <a href="#" class="block py-2 hover:text-primary transition">Video</a>
                 <a href="#" class="block py-2 hover:text-primary transition">Schedule & Results</a>
                 <a href="#" class="block py-2 hover:text-primary transition">Profile Athletes</a>
-                <a href="login.html" class="block py-2 text-blue-600 transition" id="mobile-login-btn">Login</a>
+                <a href="loginpage.html" class="block py-2 text-blue-600 transition" id="mobile-login-btn">Login</a>
                 <div class="relative mt-2">
                     <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
                     <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
