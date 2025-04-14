@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Arena - Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#f87171',
+                        blue: {
+                            login: '#0037A9'
+                        },
+                        red: {
+                            google: '#e53e3e'
+                        }
+                    }
+                }
+            }
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .video-card:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .play-icon {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200 min-h-screen flex flex-col">
+    <!-- Header with navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center mr-2">
+                        <div class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xs">UA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-2xl font-bold pixel-font tracking-wider dark:text-white">CAMPUS ARENA</a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="#" class="font-medium hover:text-primary transition">Home</a>
+                    <a href="#" class="font-medium hover:text-primary transition">News</a>
+                    <a href="#" class="font-medium text-primary transition">Video</a>
+                    <a href="#" class="font-medium hover:text-primary transition">Schedule &amp; Results</a>
+                    <a href="#" class="font-medium hover:text-primary transition">Profile Athletes</a>
+                    <a href="#" class="font-medium hover:text-primary transition">Login</a>
+                    <div class="relative">
+                        <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </nav>
+                
+                <button class="md:hidden text-gray-800 dark:text-white" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu, hidden by default -->
+            <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
+                <a href="#" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="#" class="block py-2 hover:text-primary transition">News</a>
+                <a href="#" class="block py-2 text-primary transition">Video</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Schedule &amp; Results</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Profile Athletes</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Login</a>
+                <div class="relative mt-2">
+                    <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                    <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <h1 class="text-4xl font-bold mb-8">Video</h1>
+        
+        <!-- Video Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Video Card 1 -->
+            <div class="video-card group cursor-pointer">
+                <div class="relative overflow-hidden rounded-lg mb-2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/dbd5037a525fb2022b40369d8e8487ca9f7e4dba66957b95b7af52162c3b5d2f?w=1172&h=768" alt="Match Highlight" class="w-full aspect-video object-cover">
+                    <div class="play-icon absolute top-1/2 left-1/2 w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-white text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-lg">Match Highlight: FST 2 - 0 FTMM | Quarter Final - Futsal Dies Natalies</h3>
+                <p class="text-red-600 dark:text-red-400">06 Maret 2025</p>
+            </div>
+            
+            <!-- Video Card 2 -->
+            <div class="video-card group cursor-pointer">
+                <div class="relative overflow-hidden rounded-lg mb-2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/dbd5037a525fb2022b40369d8e8487ca9f7e4dba66957b95b7af52162c3b5d2f?w=1172&h=768" alt="Match Highlight" class="w-full aspect-video object-cover">
+                    <div class="play-icon absolute top-1/2 left-1/2 w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-white text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-lg">Match Highlight: FST 2 - 0 FTMM | Quarter Final - Futsal Dies Natalies</h3>
+                <p class="text-red-600 dark:text-red-400">06 Maret 2025</p>
+            </div>
+            
+            <!-- Video Card 3 -->
+            <div class="video-card group cursor-pointer">
+                <div class="relative overflow-hidden rounded-lg mb-2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/dbd5037a525fb2022b40369d8e8487ca9f7e4dba66957b95b7af52162c3b5d2f?w=1172&h=768" alt="Match Highlight" class="w-full aspect-video object-cover">
+                    <div class="play-icon absolute top-1/2 left-1/2 w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-white text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-lg">Match Highlight: FST 2 - 0 FTMM | Quarter Final - Futsal Dies Natalies</h3>
+                <p class="text-red-600 dark:text-red-400">06 Maret 2025</p>
+            </div>
+            
+            <!-- Video Card 4 -->
+            <div class="video-card group cursor-pointer">
+                <div class="relative overflow-hidden rounded-lg mb-2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/dbd5037a525fb2022b40369d8e8487ca9f7e4dba66957b95b7af52162c3b5d2f?w=1172&h=768" alt="Match Highlight" class="w-full aspect-video object-cover">
+                    <div class="play-icon absolute top-1/2 left-1/2 w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-white text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-lg">Match Highlight: FST 3 - 1 FMIPA | Semi Final - Futsal Dies Natalies</h3>
+                <p class="text-red-600 dark:text-red-400">08 Maret 2025</p>
+            </div>
+            
+            <!-- Video Card 5 -->
+            <div class="video-card group cursor-pointer">
+                <div class="relative overflow-hidden rounded-lg mb-2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/dbd5037a525fb2022b40369d8e8487ca9f7e4dba66957b95b7af52162c3b5d2f?w=1172&h=768" alt="Match Highlight" class="w-full aspect-video object-cover">
+                    <div class="play-icon absolute top-1/2 left-1/2 w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-white text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-lg">Match Highlight: FST 4 - 2 FK | Final - Futsal Dies Natalies</h3>
+                <p class="text-red-600 dark:text-red-400">10 Maret 2025</p>
+            </div>
+            
+            <!-- Video Card 6 -->
+            <div class="video-card group cursor-pointer">
+                <div class="relative overflow-hidden rounded-lg mb-2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/dbd5037a525fb2022b40369d8e8487ca9f7e4dba66957b95b7af52162c3b5d2f?w=1172&h=768" alt="Match Highlight" class="w-full aspect-video object-cover">
+                    <div class="play-icon absolute top-1/2 left-1/2 w-16 h-16 bg-primary bg-opacity-80 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-white text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-lg">Match Highlight: FST 2 - 1 FIB | Group Stage - Futsal Dies Natalies</h3>
+                <p class="text-red-600 dark:text-red-400">03 Maret 2025</p>
+            </div>
+        </div>
+        
+        <!-- Pagination (Optional) -->
+        <div class="flex justify-center mt-10">
+            <nav class="inline-flex rounded-md shadow">
+                <a href="#" class="py-2 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-l-md hover:bg-gray-100 dark:hover:bg-gray-700">Previous</a>
+                <a href="#" class="py-2 px-4 bg-primary text-white border border-primary rounded-none">1</a>
+                <a href="#" class="py-2 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">2</a>
+                <a href="#" class="py-2 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-r-md hover:bg-gray-100 dark:hover:bg-gray-700">Next</a>
+            </nav>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <div class="text-2xl font-bold pixel-font tracking-wider mb-2">CAMPUS ARENA</div>
+                <div class="text-sm text-gray-400 mb-6">
+                    <p>Presented By:</p>
+                    <p class="text-lg font-semibold">Universitas Airlangga</p>
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="hover:text-primary"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="text-xs text-gray-400">
+                    <p>© 2023 Campus Arena. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Add click event listeners to video cards
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // In a real application, this would open a video player or link to a video page
+                alert('Video player would open here in a real application');
+            });
+        });
+    </script>
+</body>
+</html>
