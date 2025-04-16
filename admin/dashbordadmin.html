@@ -21,7 +21,7 @@
         }
 
         // Check for dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             document.documentElement.classList.add('dark');
         }
 
@@ -36,60 +36,69 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200">
     <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar Navigation -->
+        <!-- Sidebar -->
         <aside class="w-64 hidden md:block bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
             <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
                 <div class="flex items-center">
                     <img 
-                        src="your-logo-image-url-here.png" 
+                        src="https://unair.ac.id/wp-content/uploads/2021/02/unair-logo-borderFX.png" 
                         alt="Campus Arena Logo" 
                         class="w-10 h-10 rounded-full mr-2 object-cover border-2 border-blue-600"
                     >
                     <div class="font-bold text-xl">CAMPUS ARENA</div>
                 </div>
-                <button id="sidebar-close" class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
-                    <i class="fas fa-times"></i>
-                </button>
+            </div>
+            
+            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
+                        <span>JD</span>
+                    </div>
+                    <div>
+                        <p class="font-medium">Frisqi Mongilong</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Administrator</p>
+                    </div>
+                </div>
             </div>
             
             <nav class="mt-5 px-2">
                 <div class="mb-4">
                     <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Main</p>
-                    <a href="dashbordadmin.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-white mb-1">
+                    <a href="#" class="nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-white mb-1" data-target="dashboard-section">
                         <i class="fas fa-tachometer-alt w-5 h-5 mr-2"></i>
                         Dashboard
                     </a>
-                    <a href="newsmanagementadmin.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <a href="#" class="nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="content-section">
                         <i class="fas fa-newspaper w-5 h-5 mr-2"></i>
-                        News Management
+                        Content Management
                     </a>
-                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
-                        <i class="fas fa-video w-5 h-5 mr-2"></i>
-                        Video Content
-                    </a>
-                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
-                        <i class="fas fa-calendar-alt w-5 h-5 mr-2"></i>
-                        Events & Schedule
-                    </a>
-                </div>
-                
-                <div class="mb-4">
-                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Organization</p>
-                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <a href="#" class="nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="users-section">
                         <i class="fas fa-users w-5 h-5 mr-2"></i>
                         User Management
                     </a>
+                    <a href="#" class="nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="media-section">
+                        <i class="fas fa-images w-5 h-5 mr-2"></i>
+                        Media Library
+                    </a>
                 </div>
                 
                 <div class="mb-4">
-                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">System</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Configuration</p>
                     <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
                         <i class="fas fa-cog w-5 h-5 mr-2"></i>
                         Settings
                     </a>
                     <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
-                        <i class="fas fa-bell w-5 h-5 mr-2"></i>
-                        Notifications
+                        <i class="fas fa-palette w-5 h-5 mr-2"></i>
+                        Appearance
+                    </a>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Account</p>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                        <i class="fas fa-user-cog w-5 h-5 mr-2"></i>
+                        Profile
                     </a>
                     <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-100 dark:hover:bg-red-900 mb-1">
                         <i class="fas fa-sign-out-alt w-5 h-5 mr-2"></i>
@@ -108,7 +117,7 @@
                         <button id="sidebar-toggle" class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white mr-3">
                             <i class="fas fa-bars text-xl"></i>
                         </button>
-                        <h1 class="text-xl font-semibold">Dashboard</h1>
+                        <h1 class="text-xl font-semibold" id="page-title">Dashboard</h1>
                     </div>
                     
                     <div class="flex items-center space-x-4">
@@ -119,308 +128,396 @@
                         </button>
                         
                         <!-- Notifications -->
-                        <div class="relative">
-                            <button class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
-                                <i class="fas fa-bell"></i>
-                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">3</span>
-                            </button>
-                        </div>
+                        <button class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white relative">
+                            <i class="fas fa-bell"></i>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
+                        </button>
                         
-                        <!-- Admin profile -->
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-2">
-                                <span>JD</span>
-                            </div>
-                            <span class="text-sm font-medium">John Doe</span>
-                        </div>
+                        <!-- View Website -->
+                        <a href="#" class="hidden sm:inline-flex items-center text-sm bg-primary hover:bg-primary-dark text-white px-3 py-1 rounded-md">
+                            <i class="fas fa-external-link-alt mr-1"></i>
+                            View Website
+                        </a>
                     </div>
                 </div>
             </header>
             
-            <!-- Content Area -->
+            <!-- Main Content Area -->
             <main class="flex-1 overflow-y-auto p-4">
-                <!-- Overview Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <!-- Total Users Card -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Total Users</p>
-                                <h3 class="text-2xl font-bold">8,249</h3>
-                                <p class="text-green-500 text-sm flex items-center">
-                                    <i class="fas fa-arrow-up mr-1"></i>
-                                    <span>12.5% since last month</span>
-                                </p>
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="admin-section">
+                    <!-- Overview Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <!-- Total Visitors Card -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Total Visitors</p>
+                                    <h3 class="text-2xl font-bold">142,382</h3>
+                                    <p class="text-green-500 text-sm flex items-center">
+                                        <i class="fas fa-arrow-up mr-1"></i>
+                                        <span>12.5% since last month</span>
+                                    </p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                                    <i class="fas fa-eye text-xl"></i>
+                                </div>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400">
-                                <i class="fas fa-users text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Page Views Card -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Page Views</p>
-                                <h3 class="text-2xl font-bold">142,382</h3>
-                                <p class="text-green-500 text-sm flex items-center">
-                                    <i class="fas fa-arrow-up mr-1"></i>
-                                    <span>8.2% since last week</span>
-                                </p>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400">
-                                <i class="fas fa-eye text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- New Articles Card -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">New Articles</p>
-                                <h3 class="text-2xl font-bold">38</h3>
-                                <p class="text-red-500 text-sm flex items-center">
-                                    <i class="fas fa-arrow-down mr-1"></i>
-                                    <span>5.1% since last week</span>
-                                </p>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400">
-                                <i class="fas fa-newspaper text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Revenue Card -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Ad Revenue</p>
-                                <h3 class="text-2xl font-bold">$4,825</h3>
-                                <p class="text-green-500 text-sm flex items-center">
-                                    <i class="fas fa-arrow-up mr-1"></i>
-                                    <span>18.3% since last month</span>
-                                </p>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
-                                <i class="fas fa-dollar-sign text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Chart and Activity Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                    <!-- Traffic Chart -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 col-span-2">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold">Website Traffic</h3>
-                            <div class="flex space-x-2">
-                                <button class="px-3 py-1 text-xs bg-primary text-white rounded">Daily</button>
-                                <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">Weekly</button>
-                                <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">Monthly</button>
-                            </div>
-                        </div>
-                        <div class="h-64">
-                            <canvas id="trafficChart"></canvas>
-                        </div>
-                    </div>
-                    
-                    <!-- Recent Activity -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold">Recent Activity</h3>
-                            <button class="text-primary hover:text-blue-700 text-sm">View All</button>
                         </div>
                         
-                        <div class="space-y-4">
-                            <!-- Activity item 1 -->
-                            <div class="flex">
-                                <div class="flex-shrink-0 mr-3">
-                                    <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </div>
+                        <!-- Total Users Card -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                            <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-sm font-medium">New article published</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">FOSTER: Aaron Judge has been as complete a hitter...</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">10 mins ago</p>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Registered Users</p>
+                                    <h3 class="text-2xl font-bold">8,249</h3>
+                                    <p class="text-green-500 text-sm flex items-center">
+                                        <i class="fas fa-arrow-up mr-1"></i>
+                                        <span>8.2% since last week</span>
+                                    </p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400">
+                                    <i class="fas fa-users text-xl"></i>
                                 </div>
                             </div>
-                            
-                            <!-- Activity item 2 -->
-                            <div class="flex">
-                                <div class="flex-shrink-0 mr-3">
-                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
+                        </div>
+                        
+                        <!-- Total Content Card -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                            <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-sm font-medium">New user registered</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">User ID: #58942</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">25 mins ago</p>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Total Content</p>
+                                    <h3 class="text-2xl font-bold">438</h3>
+                                    <p class="text-green-500 text-sm flex items-center">
+                                        <i class="fas fa-arrow-up mr-1"></i>
+                                        <span>5.1% since last week</span>
+                                    </p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                                    <i class="fas fa-newspaper text-xl"></i>
                                 </div>
                             </div>
-                            
-                            <!-- Activity item 3 -->
-                            <div class="flex">
-                                <div class="flex-shrink-0 mr-3">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white">
-                                        <i class="fas fa-edit"></i>
-                                    </div>
-                                </div>
+                        </div>
+                        
+                        <!-- Engagement Rate Card -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                            <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-sm font-medium">Article updated</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">Redrafting the 2016 NBA Draft...</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">42 mins ago</p>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-1">Engagement Rate</p>
+                                    <h3 class="text-2xl font-bold">28.3%</h3>
+                                    <p class="text-red-500 text-sm flex items-center">
+                                        <i class="fas fa-arrow-down mr-1"></i>
+                                        <span>2.4% since last month</span>
+                                    </p>
                                 </div>
-                            </div>
-                            
-                            <!-- Activity item 4 -->
-                            <div class="flex">
-                                <div class="flex-shrink-0 mr-3">
-                                    <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white">
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium">Comment deleted</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">Comment ID: #12453</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">1 hour ago</p>
+                                <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
+                                    <i class="fas fa-chart-line text-xl"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Recent Content and Popular Categories -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Recent Content -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 col-span-2">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold">Recent Content</h3>
-                            <div class="flex">
-                                <button class="text-primary hover:text-blue-700 text-sm mr-2">
-                                    <i class="fas fa-plus-circle mr-1"></i>
-                                    Add New
+                    
+                    <!-- Analytics Charts -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                        <!-- Visitor Traffic Chart -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 lg:col-span-2">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Website Traffic</h3>
+                                <div class="flex space-x-2">
+                                    <button class="px-3 py-1 text-xs bg-primary text-white rounded">Weekly</button>
+                                    <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">Monthly</button>
+                                    <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">Yearly</button>
+                                </div>
+                            </div>
+                            <div class="h-64">
+                                <canvas id="visitorChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <!-- User Sources Donut Chart -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Traffic Sources</h3>
+                                <button class="text-primary hover:text-blue-700 text-sm">
+                                    <i class="fas fa-sync-alt"></i>
                                 </button>
+                            </div>
+                            <div class="h-64 flex items-center justify-center">
+                                <canvas id="sourcesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Content and User Activity -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <!-- Recent Content -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                                <h3 class="font-semibold">Recent Content</h3>
                                 <button class="text-primary hover:text-blue-700 text-sm">View All</button>
                             </div>
+                            <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Content Item 1 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1508344928928-7165b0c40aa6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium">FOSTER: Aaron Judge has been as complete a hitter as any team could want</h4>
+                                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                <span>Published • 2 hours ago</span>
+                                                <span class="mx-2">•</span>
+                                                <span>By David Foster</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-2">
+                                            <button class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Item 2 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium">Redrafting the 2016 NBA Draft, from Simmons and Siakam to VanVleet</h4>
+                                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                <span>Published • 5 hours ago</span>
+                                                <span class="mx-2">•</span>
+                                                <span>By Michael Jordan</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-2">
+                                            <button class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Item 3 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1624526267942-ab0c0e53d259?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium">Stones and Haaland inspire stunning late turnaround as City edge past Dortmund</h4>
+                                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                <span>Draft • 1 day ago</span>
+                                                <span class="mx-2">•</span>
+                                                <span>By Sarah Johnson</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-2">
+                                            <button class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Item 4 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium">How to bet Canelo-GGG 3</h4>
+                                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                <span>Published • 2 days ago</span>
+                                                <span class="mx-2">•</span>
+                                                <span>By Mike Tyson</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-2">
+                                            <button class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
+                        <!-- Recent User Activity -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                                <h3 class="font-semibold">Recent User Activity</h3>
+                                <button class="text-primary hover:text-blue-700 text-sm">View All</button>
+                            </div>
+                            <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Activity Item 1 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-full bg-primary mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                            JD
+                                        </div>
+                                        <div>
+                                            <p class="text-sm"><span class="font-medium">John Doe</span> registered a new account</p>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">5 minutes ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Activity Item 2 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-full bg-green-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                            SA
+                                        </div>
+                                        <div>
+                                            <p class="text-sm"><span class="font-medium">Sarah Adams</span> commented on "Redrafting the 2016 NBA Draft"</p>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">28 minutes ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Activity Item 3 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-full bg-yellow-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                            RM
+                                        </div>
+                                        <div>
+                                            <p class="text-sm"><span class="font-medium">Robert Miller</span> liked "FOSTER: Aaron Judge has been as complete..."</p>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Activity Item 4 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-full bg-blue-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                            LJ
+                                        </div>
+                                        <div>
+                                            <p class="text-sm"><span class="font-medium">Lisa Johnson</span> updated her profile picture</p>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">3 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Activity Item 5 -->
+                                <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-750">
+                                    <div class="flex">
+                                        <div class="w-10 h-10 rounded-full bg-red-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                            KT
+                                        </div>
+                                        <div>
+                                            <p class="text-sm"><span class="font-medium">Kevin Thompson</span> shared "How to bet Canelo-GGG 3"</p>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">5 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Content -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+                        <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                            <h3 class="font-semibold">Most Popular Content</h3>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 text-xs bg-primary text-white rounded">This Week</button>
+                                <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">This Month</button>
+                                <button class="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">All Time</button>
+                            </div>
+                        </div>
                         <div class="overflow-x-auto">
                             <table class="w-full">
                                 <thead>
                                     <tr class="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                        <th class="px-4 py-2">Title</th>
-                                        <th class="px-4 py-2">Author</th>
-                                        <th class="px-4 py-2">Category</th>
-                                        <th class="px-4 py-2">Date</th>
-                                        <th class="px-4 py-2">Status</th>
-                                        <th class="px-4 py-2">Actions</th>
+                                        <th class="px-4 py-3 w-1/2">Content</th>
+                                        <th class="px-4 py-3">Views</th>
+                                        <th class="px-4 py-3">Likes</th>
+                                        <th class="px-4 py-3">Comments</th>
+                                        <th class="px-4 py-3">Publish Date</th>
+                                        <th class="px-4 py-3">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                    <!-- Row 1 -->
-                                    <tr>
+                                    <!-- Popular Content 1 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
                                         <td class="px-4 py-3">
                                             <div class="flex items-center">
-                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
-                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1508344928928-7165b0c40aa6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                                    <img src="https://images.unsplash.com/photo-1508344928928-7165b0c40aa6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
                                                 </div>
-                                                <div class="text-sm font-medium">Aaron Judge has been as complete a hitter...</div>
+                                                <div>
+                                                    <h4 class="text-sm font-medium">FOSTER: Aaron Judge has been as complete a hitter as any team could want</h4>
+                                                    <p class="text-xs text-gray-500 dark:text-gray-400">Baseball</p>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td class="px-4 py-3 text-sm">David Foster</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Baseball</span>
+                                        <td class="px-4 py-3 text-sm">10,548</td>
+                                        <td class="px-4 py-3 text-sm">827</td>
+                                        <td class="px-4 py-3 text-sm">132</td>
+                                        <td class="px-4 py-3 text-sm">Sep 20, 2023</td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                            </div>
                                         </td>
+                                    </tr>
+                                    
+                                    <!-- Popular Content 2 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                                    <img src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
+                                                </div>
+                                                <div>
+                                                    <h4 class="text-sm font-medium">Redrafting the 2016 NBA Draft, from Simmons and Siakam to VanVleet</h4>
+                                                    <p class="text-xs text-gray-500 dark:text-gray-400">Basketball</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">8,392</td>
+                                        <td class="px-4 py-3 text-sm">615</td>
+                                        <td class="px-4 py-3 text-sm">98</td>
                                         <td class="px-4 py-3 text-sm">Sep 18, 2023</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
-                                        </td>
                                         <td class="px-4 py-3 text-sm">
                                             <div class="flex space-x-2">
                                                 <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
                                                 <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                     
-                                    <!-- Row 2 -->
-                                    <tr>
+                                    <!-- Popular Content 3 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
                                         <td class="px-4 py-3">
                                             <div class="flex items-center">
-                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
-                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                <div class="w-10 h-10 rounded-md bg-gray-200 dark:bg-gray-700 mr-3 flex-shrink-0 overflow-hidden">
+                                                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="" class="w-full h-full object-cover">
                                                 </div>
-                                                <div class="text-sm font-medium">Redrafting the 2016 NBA Draft...</div>
-                                            </div>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">Michael Jordan</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Basketball</span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">Sep 17, 2023</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            <div class="flex space-x-2">
-                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
-                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Row 3 -->
-                                    <tr>
-                                        <td class="px-4 py-3">
-                                            <div class="flex items-center">
-                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
-                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1624526267942-ab0c0e53d259?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                <div>
+                                                    <h4 class="text-sm font-medium">How to bet Canelo-GGG 3</h4>
+                                                    <p class="text-xs text-gray-500 dark:text-gray-400">Boxing</p>
                                                 </div>
-                                                <div class="text-sm font-medium">Stones and Haaland inspire stunning...</div>
                                             </div>
                                         </td>
-                                        <td class="px-4 py-3 text-sm">Sarah Johnson</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Soccer</span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">Sep 16, 2023</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Draft</span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            <div class="flex space-x-2">
-                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
-                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Row 4 -->
-                                    <tr>
-                                        <td class="px-4 py-3">
-                                            <div class="flex items-center">
-                                                <div class="w-10 h-10 flex-shrink-0 mr-3">
-                                                    <img class="h-10 w-10 rounded-sm object-cover" src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
-                                                </div>
-                                                <div class="text-sm font-medium">How to bet Canelo-GGG 3</div>
-                                            </div>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">Mike Tyson</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Boxing</span>
-                                        </td>
+                                        <td class="px-4 py-3 text-sm">7,291</td>
+                                        <td class="px-4 py-3 text-sm">543</td>
+                                        <td class="px-4 py-3 text-sm">87</td>
                                         <td class="px-4 py-3 text-sm">Sep 15, 2023</td>
-                                        <td class="px-4 py-3">
-                                            <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Archived</span>
-                                        </td>
                                         <td class="px-4 py-3 text-sm">
                                             <div class="flex space-x-2">
                                                 <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
                                                 <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </td>
@@ -429,97 +526,681 @@
                             </table>
                         </div>
                     </div>
+                </section>
+                
+                <!-- Content Management Section -->
+                <section id="content-section" class="admin-section hidden">
+                    <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <h2 class="text-xl font-bold mb-2 sm:mb-0">Content Management</h2>
+                        <button class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700 transition flex items-center">
+                            <i class="fas fa-plus mr-2"></i>
+                            Add New Content
+                        </button>
+                    </div>
                     
-                    <!-- Popular Categories -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold">Popular Categories</h3>
-                            <button class="text-primary hover:text-blue-700 text-sm">View All</button>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <!-- Category 1 -->
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400 mr-3">
-                                    <i class="fas fa-basketball-ball"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="text-sm font-medium">Basketball</h4>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">34%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
-                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 34%"></div>
+                    <!-- Content Filters -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-6 p-4">
+                        <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0">
+                            <div class="flex-1">
+                                <div class="relative">
+                                    <input type="text" placeholder="Search content..." class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-base">
+                                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                        <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Category 2 -->
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400 mr-3">
-                                    <i class="fas fa-futbol"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="text-sm font-medium">Soccer</h4>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">28%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
-                                        <div class="bg-green-600 h-2 rounded-full" style="width: 28%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Category 3 -->
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-400 mr-3">
-                                    <i class="fas fa-baseball-ball"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="text-sm font-medium">Baseball</h4>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">22%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
-                                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 22%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Category 4 -->
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center text-red-600 dark:text-red-400 mr-3">
-                                    <i class="fas fa-volleyball-ball"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="text-sm font-medium">Volleyball</h4>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">16%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
-                                        <div class="bg-red-600 h-2 rounded-full" style="width: 16%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Category 5 -->
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400 mr-3">
-                                    <i class="fas fa-football-ball"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="text-sm font-medium">American Football</h4>
-                                        <span class="text-sm text-gray-500 dark:text-gray-400">12%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
-                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 12%"></div>
-                                    </div>
-                                </div>
+                            <div class="flex space-x-2">
+                                <select class="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-primary py-2 px-3 text-base">
+                                    <option value="">All Categories</option>
+                                    <option value="baseball">Baseball</option>
+                                    <option value="basketball">Basketball</option>
+                                    <option value="football">Football</option>
+                                    <option value="soccer">Soccer</option>
+                                    <option value="boxing">Boxing</option>
+                                </select>
+                                <select class="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-primary py-2 px-3 text-base">
+                                    <option value="">All Status</option>
+                                    <option value="published">Published</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="scheduled">Scheduled</option>
+                                    <option value="archived">Archived</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                </div>
+                    
+                    <!-- Content List -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-gray-50 dark:bg-gray-700 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                        <th class="px-6 py-3">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>Title</span>
+                                            </div>
+                                        </th>
+                                        <th class="px-6 py-3">Author</th>
+                                        <th class="px-6 py-3">Category</th>
+                                        <th class="px-6 py-3">Status</th>
+                                        <th class="px-6 py-3">Published Date</th>
+                                        <th class="px-6 py-3">Views</th>
+                                        <th class="px-6 py-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- Content Item 1 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-12 h-12 flex-shrink-0 mr-3">
+                                                    <img class="h-12 w-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1508344928928-7165b0c40aa6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">FOSTER: Aaron Judge has been as complete a hitter as any team could want</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">2023-09-20 10:45 AM</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">David Foster</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Baseball</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Sep 20, 2023</td>
+                                        <td class="px-6 py-4 text-sm">10,548</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Content Item 2 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-12 h-12 flex-shrink-0 mr-3">
+                                                    <img class="h-12 w-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">Redrafting the 2016 NBA Draft, from Simmons and Siakam to VanVleet</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">2023-09-18 02:30 PM</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">Michael Jordan</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Basketball</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Sep 18, 2023</td>
+                                        <td class="px-6 py-4 text-sm">8,392</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Content Item 3 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-12 h-12 flex-shrink-0 mr-3">
+                                                    <img class="h-12 w-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1624526267942-ab0c0e53d259?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">Stones and Haaland inspire stunning late turnaround as City edge past Dortmund</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">2023-09-21 08:15 AM</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">Sarah Johnson</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Soccer</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Draft</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">--</td>
+                                        <td class="px-6 py-4 text-sm">--</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Content Item 4 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-12 h-12 flex-shrink-0 mr-3">
+                                                    <img class="h-12 w-12 rounded-md object-cover" src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&w=100&h=100&q=80" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">How to bet Canelo-GGG 3</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">2023-09-15 03:45 PM</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">Mike Tyson</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Boxing</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Published</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Sep 15, 2023</td>
+                                        <td class="px-6 py-4 text-sm">7,291</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-eye"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="bg-white dark:bg-gray-800 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 sm:px-6">
+                            <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+                                        Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">438</span> results
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <span class="sr-only">Previous</span>
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">1</a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">2</a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">3</a>
+                                        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white">...</span>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">44</a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <span class="sr-only">Next</span>
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="flex sm:hidden">
+                                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-white bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">Previous</a>
+                                <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-white bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- User Management Section -->
+                <section id="users-section" class="admin-section hidden">
+                    <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <h2 class="text-xl font-bold mb-2 sm:mb-0">User Management</h2>
+                        <button class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700 transition flex items-center">
+                            <i class="fas fa-user-plus mr-2"></i>
+                            Add New User
+                        </button>
+                    </div>
+                    
+                    <!-- User Filters -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-6 p-4">
+                        <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0">
+                            <div class="flex-1">
+                                <div class="relative">
+                                    <input type="text" placeholder="Search users..." class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-base">
+                                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex space-x-2">
+                                <select class="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-primary py-2 px-3 text-base">
+                                    <option value="">All Roles</option>
+                                    <option value="admin">Administrator</option>
+                                    <option value="editor">Editor</option>
+                                    <option value="author">Author</option>
+                                    <option value="subscriber">Subscriber</option>
+                                </select>
+                                <select class="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-primary py-2 px-3 text-base">
+                                    <option value="">All Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="suspended">Suspended</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- User List -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-gray-50 dark:bg-gray-700 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                        <th class="px-6 py-3">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-2">
+                                                <span>User</span>
+                                            </div>
+                                        </th>
+                                        <th class="px-6 py-3">Email</th>
+                                        <th class="px-6 py-3">Role</th>
+                                        <th class="px-6 py-3">Status</th>
+                                        <th class="px-6 py-3">Registered Date</th>
+                                        <th class="px-6 py-3">Last Login</th>
+                                        <th class="px-6 py-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- User 1 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-10 h-10 rounded-full bg-primary mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                                    JD
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">John Doe</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">@johndoe</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">john.doe@example.com</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">Administrator</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Jan 12, 2022</td>
+                                        <td class="px-6 py-4 text-sm">5 minutes ago</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-user-shield"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- User 2 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-10 h-10 rounded-full bg-green-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                                    SA
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">Sarah Adams</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">@sarahadams</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">sarah.adams@example.com</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Editor</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Mar 28, 2022</td>
+                                        <td class="px-6 py-4 text-sm">28 minutes ago</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-user-shield"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- User 3 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-10 h-10 rounded-full bg-yellow-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                                    RM
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">Robert Miller</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">@robmiller</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">robert.miller@example.com</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Author</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">May 14, 2022</td>
+                                        <td class="px-6 py-4 text-sm">1 hour ago</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-user-shield"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- User 4 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-10 h-10 rounded-full bg-blue-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                                    LJ
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">Lisa Johnson</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">@lisaj</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">lisa.johnson@example.com</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Subscriber</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Jun 02, 2022</td>
+                                        <td class="px-6 py-4 text-sm">3 hours ago</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-user-shield"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- User 5 -->
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-750">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="mr-3">
+                                                <div class="w-10 h-10 rounded-full bg-red-500 mr-3 flex-shrink-0 flex items-center justify-center text-white font-medium">
+                                                    KT
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium">Kevin Thompson</div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-400">@kevint</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">kevin.thompson@example.com</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Subscriber</span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Inactive</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm">Jul 19, 2022</td>
+                                        <td class="px-6 py-4 text-sm">5 hours ago</td>
+                                        <td class="px-6 py-4 text-sm">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i></button>
+                                                <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-user-shield"></i></button>
+                                                <button class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
+                                                <div class="relative">
+                                                    <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-ellipsis-v"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="bg-white dark:bg-gray-800 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 sm:px-6">
+                            <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+                                        Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">8,249</span> users
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <span class="sr-only">Previous</span>
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">1</a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">2</a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">3</a>
+                                        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white">...</span>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">825</a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <span class="sr-only">Next</span>
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="flex sm:hidden">
+                                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-white bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">Previous</a>
+                                <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-white bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Media Library Section -->
+                <section id="media-section" class="admin-section hidden">
+                    <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <h2 class="text-xl font-bold mb-2 sm:mb-0">Media Library</h2>
+                        <div class="flex space-x-2">
+                            <button class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700 transition flex items-center">
+                                <i class="fas fa-upload mr-2"></i>
+                                Upload Media
+                            </button>
+                            <button class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
+                                <i class="fas fa-folder-plus mr-2"></i>
+                                New Folder
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Media Filters -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-6 p-4">
+                        <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0">
+                            <div class="flex-1">
+                                <div class="relative">
+                                    <input type="text" placeholder="Search media..." class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-base">
+                                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex space-x-2">
+                                <select class="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-primary py-2 px-3 text-base">
+                                    <option value="">All Types</option>
+                                    <option value="image">Images</option>
+                                    <option value="video">Videos</option>
+                                    <option value="document">Documents</option>
+                                </select>
+                                <select class="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-primary py-2 px-3 text-base">
+                                    <option value="">Date: All Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Media Grid -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                            <!-- Media item 1 -->
+                            <div class="group relative">
+                                <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNB29JO_oI-dVymYKX7MT1rOlb5_aOoq9D_A&s" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                                        <div class="hidden group-hover:flex space-x-2">
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-red-500">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-1 text-sm truncate">aaron-judge.jpg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">230 KB - Sep 20, 2023</p>
+                            </div>
+                            
+                            <!-- Media item 2 -->
+                            <div class="group relative">
+                                <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                                    <img src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-4.0.3&w=300&h=300&q=80" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                                        <div class="hidden group-hover:flex space-x-2">
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-red-500">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-1 text-sm truncate">nba-draft-2016.jpg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">185 KB - Sep 18, 2023</p>
+                            </div>
+                            
+                            <!-- Media item 3 -->
+                            <div class="group relative">
+                                <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                                    <img src="https://static.independent.co.uk/2021/04/07/08/1311152698.jpg" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                                        <div class="hidden group-hover:flex space-x-2">
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-red-500">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-1 text-sm truncate">man-city-dortmund.jpg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">210 KB - Sep 21, 2023</p>
+                            </div>
+                            
+                            <!-- Media item 4 -->
+                            <div class="group relative">
+                                <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.0.3&w=300&h=300&q=80" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                                        <div class="hidden group-hover:flex space-x-2">
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-red-500">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-1 text-sm truncate">canelo-ggg.jpg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">240 KB - Sep 15, 2023</p>
+                            </div>
+                            
+                            <!-- Media item 5 -->
+                            <div class="group relative">
+                                <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                                    <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&w=300&h=300&q=80" alt="" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity flex items-center justify-center">
+                                        <div class="hidden group-hover:flex space-x-2">
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-gray-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-1 bg-white rounded-full text-red-500">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-1 text-sm truncate">football-lineup.jpg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">180 KB - Sep 19, 2023</p>
+                            </div>
+                            
+                            <!-- More media items... -->
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     </div>
@@ -543,44 +1224,56 @@
             </button>
         </div>
         
+        <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
+                    <span>JD</span>
+                </div>
+                <div>
+                    <p class="font-medium">John Doe</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Administrator</p>
+                </div>
+            </div>
+        </div>
+        
         <nav class="mt-5 px-2">
             <div class="mb-4">
                 <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Main</p>
-                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-white mb-1">
+                <a href="#" class="mobile-nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="dashboard-section">
                     <i class="fas fa-tachometer-alt w-5 h-5 mr-2"></i>
-                    <a href="dashbordadmin.html">Dashboard</a>
+                    Dashboard
                 </a>
-                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                <a href="#" class="mobile-nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="content-section">
                     <i class="fas fa-newspaper w-5 h-5 mr-2"></i>
-                    <a href="newsmanagementadmin.html">News Management</a>
+                    Content Management
                 </a>
-                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
-                    <i class="fas fa-video w-5 h-5 mr-2"></i>
-                    Video Content
-                </a>
-                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
-                    <i class="fas fa-calendar-alt w-5 h-5 mr-2"></i>
-                    Events & Schedule
-                </a>
-            </div>
-            
-            <div class="mb-4">
-                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Organization</p>
-                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                <a href="#" class="mobile-nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="users-section">
                     <i class="fas fa-users w-5 h-5 mr-2"></i>
                     User Management
                 </a>
+                <a href="#" class="mobile-nav-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1" data-target="media-section">
+                    <i class="fas fa-images w-5 h-5 mr-2"></i>
+                    Media Library
+                </a>
             </div>
             
             <div class="mb-4">
-                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">System</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Configuration</p>
                 <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
                     <i class="fas fa-cog w-5 h-5 mr-2"></i>
                     Settings
                 </a>
                 <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
-                    <i class="fas fa-bell w-5 h-5 mr-2"></i>
-                    Notifications
+                    <i class="fas fa-palette w-5 h-5 mr-2"></i>
+                    Appearance
+                </a>
+            </div>
+            
+            <div class="mb-4">
+                <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider px-3 mb-2">Account</p>
+                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 mb-1">
+                    <i class="fas fa-user-cog w-5 h-5 mr-2"></i>
+                    Profile
                 </a>
                 <a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-100 dark:hover:bg-red-900 mb-1">
                     <i class="fas fa-sign-out-alt w-5 h-5 mr-2"></i>
@@ -591,110 +1284,178 @@
     </div>
 
     <script>
-        // Initialize traffic chart
         document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('trafficChart').getContext('2d');
-            const trafficChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [{
-                        label: 'Page Views',
-                        data: [4500, 5200, 4800, 5900, 6500, 7200, 8100],
-                        backgroundColor: 'rgba(93, 92, 222, 0.2)',
-                        borderColor: '#5D5CDE',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        pointBackgroundColor: '#5D5CDE',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: 4
-                    }, {
-                        label: 'Unique Visitors',
-                        data: [2800, 3100, 2950, 3400, 3800, 4200, 4600],
-                        backgroundColor: 'rgba(252, 165, 165, 0.2)',
-                        borderColor: '#F87171',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        pointBackgroundColor: '#F87171',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                usePointStyle: true,
-                                boxWidth: 8
-                            }
+            // Navigation handling
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            const sections = document.querySelectorAll('.admin-section');
+            const pageTitle = document.getElementById('page-title');
+            
+            function showSection(sectionId) {
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show the target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    
+                    // Update page title
+                    if (pageTitle) {
+                        let title = sectionId.split('-')[0];
+                        title = title.charAt(0).toUpperCase() + title.slice(1);
+                        pageTitle.textContent = title;
+                    }
+                    
+                    // Update active state for nav links
+                    navLinks.forEach(link => {
+                        if (link.dataset.target === sectionId) {
+                            link.classList.add('bg-primary', 'text-white');
+                            link.classList.remove('text-gray-700', 'dark:text-gray-200', 'hover:bg-gray-200', 'dark:hover:bg-gray-700');
+                        } else {
+                            link.classList.remove('bg-primary', 'text-white');
+                            link.classList.add('text-gray-700', 'dark:text-gray-200', 'hover:bg-gray-200', 'dark:hover:bg-gray-700');
                         }
+                    });
+                    
+                    // Close mobile sidebar
+                    closeMobileSidebar();
+                }
+            }
+            
+            // Set up navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showSection(link.dataset.target);
+                });
+            });
+            
+            // Mobile sidebar toggle
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const mobileSidebar = document.getElementById('mobile-sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const closeMobileSidebarBtn = document.getElementById('close-mobile-sidebar');
+            
+            function openMobileSidebar() {
+                mobileSidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            }
+            
+            function closeMobileSidebar() {
+                mobileSidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            }
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', openMobileSidebar);
+            }
+            
+            if (closeMobileSidebarBtn) {
+                closeMobileSidebarBtn.addEventListener('click', closeMobileSidebar);
+            }
+            
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', closeMobileSidebar);
+            }
+            
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    updateCharts();
+                });
+            }
+            
+            // Initialize charts
+            const visitorChart = new Chart(
+                document.getElementById('visitorChart'),
+                {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'This Week',
+                            data: [1200, 1900, 1500, 2100, 2400, 2800, 3200],
+                            borderColor: '#5D5CDE',
+                            backgroundColor: 'rgba(93, 92, 222, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }, {
+                            label: 'Last Week',
+                            data: [1000, 1500, 1300, 1800, 2000, 2200, 2500],
+                            borderColor: '#f87171',
+                            backgroundColor: 'rgba(248, 113, 113, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
                     },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                drawBorder: false
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
                             }
                         },
-                        x: {
-                            grid: {
-                                display: false
+                        scales: {
+                            y: {
+                                beginAtZero: true
                             }
                         }
                     }
                 }
-            });
+            );
             
-            // Update chart on theme change
-            function updateChartTheme(isDark) {
-                trafficChart.options.scales.y.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-                trafficChart.options.scales.x.color = isDark ? '#fff' : '#666';
-                trafficChart.options.scales.y.color = isDark ? '#fff' : '#666';
-                trafficChart.options.plugins.legend.labels.color = isDark ? '#fff' : '#666';
-                trafficChart.update();
-            }
+            const sourcesChart = new Chart(
+                document.getElementById('sourcesChart'),
+                {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Direct', 'Social Media', 'Search Engines', 'Referrals', 'Other'],
+                        datasets: [{
+                            data: [35, 25, 20, 15, 5],
+                            backgroundColor: [
+                                '#5D5CDE',
+                                '#f87171',
+                                '#10b981',
+                                '#f59e0b',
+                                '#6b7280'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            }
+                        }
+                    }
+                }
+            );
             
-            // Initialize chart theme based on current mode
-            updateChartTheme(document.documentElement.classList.contains('dark'));
-            
-            // Dark mode toggle
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            darkModeToggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
+            function updateCharts() {
                 const isDark = document.documentElement.classList.contains('dark');
-                updateChartTheme(isDark);
-            });
-            
-            // Mobile sidebar controls
-            const sidebarToggle = document.getElementById('sidebar-toggle');
-            const mobileSidebar = document.getElementById('mobile-sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
-            const closeMobileSidebar = document.getElementById('close-mobile-sidebar');
-            
-            function openSidebar() {
-                mobileSidebar.classList.remove('-translate-x-full');
-                sidebarOverlay.classList.remove('hidden');
-                setTimeout(() => {
-                    sidebarOverlay.classList.remove('opacity-0');
-                }, 10);
+                
+                // Update chart colors based on theme
+                visitorChart.options.scales.x.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+                visitorChart.options.scales.y.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+                visitorChart.options.scales.x.ticks.color = isDark ? '#fff' : '#666';
+                visitorChart.options.scales.y.ticks.color = isDark ? '#fff' : '#666';
+                
+                sourcesChart.options.plugins.legend.labels.color = isDark ? '#fff' : '#666';
+                
+                visitorChart.update();
+                sourcesChart.update();
             }
             
-            function closeSidebar() {
-                mobileSidebar.classList.add('-translate-x-full');
-                sidebarOverlay.classList.add('opacity-0');
-                setTimeout(() => {
-                    sidebarOverlay.classList.add('hidden');
-                }, 300);
-            }
-            
-            sidebarToggle.addEventListener('click', openSidebar);
-            closeMobileSidebar.addEventListener('click', closeSidebar);
-            sidebarOverlay.addEventListener('click', closeSidebar);
+            // Set initial state
+            updateCharts();
+            showSection('dashboard-section');
         });
     </script>
 </body>

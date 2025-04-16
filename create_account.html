@@ -36,14 +36,6 @@
             color: var(--text-color);
         }
 
-        /* Header Styles */
-        .top-bar {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-
         .header {
             display: flex;
             justify-content: space-between;
@@ -287,24 +279,19 @@
     </style>
 </head>
 <body>
-    <!-- Top bar -->
-    <div class="top-bar">
-        Create Account
-    </div>
-
     <!-- Header -->
     <header class="header">
         <div class="logo-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Ccircle cx='25' cy='25' r='20' fill='%230047AB'/%3E%3Cpath d='M15 15 L35 35 M15 35 L35 15' stroke='white' stroke-width='4'/%3E%3C/svg%3E" alt="Campus Arena Logo" class="logo-img">
+            <img src="asset/Logo UNAIR.png" alt="Campus Arena Logo" class="logo-img">
             <span class="logo-text">CAMPUS ARENA</span>
         </div>
         <nav class="nav">
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Video</a></li>
-                <li><a href="#">Schedule & Results</a></li>
-                <li><a href="#" class="active">Login</a></li>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="schedule_results.html">Schedule & Results</a></li>
+                <li><a href="loginpage.html" class="active">Login</a></li>
             </ul>
             <input type="text" placeholder="Search here" class="search-bar">
         </nav>
@@ -340,7 +327,7 @@
         <div class="divider">or log in with</div>
 
         <div class="social-login">
-            <a href="#" class="social-btn email-login">
+            <a href="loginpage.html" class="social-btn email-login">
                 ✉️ Log in to your account
             </a>
             <a href="#" class="social-btn google-login">

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Arena - Schedule & Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#f87171',
+                    }
+                }
+            }
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <style>
+        .team-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #e11d48;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #f9fafb;
+        }
+        
+        /* For demonstration borders - can be removed when adding actual images */
+        .placeholder {
+            position: relative;
+        }
+        
+        .placeholder:after {
+            content: "+";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #6b7280;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200">
+    <!-- Header with navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img 
+                        src="asset/Logo UNAIR.png" 
+                        alt="Campus Arena Logo" 
+                        class="w-12 h-12 rounded-full mr-2 object-cover"
+                    >
+                    <a href="#" class="text-2xl font-bold tracking-wider dark:text-white">CAMPUS ARENA</a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="Homepage.html" class="font-medium hover:text-primary transition">Home</a>
+                    <a href="news.html" class="font-medium hover:text-primary transition">News</a>
+                    <a href="video.html" class="font-medium hover:text-primary transition">Video</a>
+                    <a href="schedule_results.html" class="font-medium text-primary hover:text-primary transition">Schedule & Results</a>
+                    <a href="loginpage.html" class="font-medium text-blue-600 transition" id="header-login-btn">Login</a>
+                    <div class="relative">
+                        <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </nav>
+                
+                <button class="md:hidden text-gray-800 dark:text-white" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu, hidden by default -->
+            <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
+                <a href="#" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="#" class="block py-2 hover:text-primary transition">News</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Video</a>
+                <a href="#" class="block py-2 text-primary transition">Schedule & Results</a>
+                <a href="login.html" class="block py-2 text-blue-600 transition" id="mobile-login-btn">Login</a>
+                <div class="relative mt-2">
+                    <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                    <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        <!-- Weekly Calendar Navigation -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-6 overflow-hidden">
+            <div class="flex justify-between items-center">
+                <button class="px-4 py-6 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                
+                <div class="flex-1 grid grid-cols-7 text-center">
+                    <!-- Saturday -->
+                    <div class="py-4 border-r border-gray-200 dark:border-gray-700">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Saturday</p>
+                        <p class="text-2xl font-bold mb-1">15</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                    
+                    <!-- Sunday -->
+                    <div class="py-4 border-r border-gray-200 dark:border-gray-700">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Sunday</p>
+                        <p class="text-2xl font-bold mb-1">16</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                    
+                    <!-- Monday -->
+                    <div class="py-4 border-r border-gray-200 dark:border-gray-700">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Monday</p>
+                        <p class="text-2xl font-bold mb-1">17</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                    
+                    <!-- Tuesday -->
+                    <div class="py-4 border-r border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Tuesday</p>
+                        <p class="text-2xl font-bold mb-1">18</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                    
+                    <!-- Wednesday -->
+                    <div class="py-4 border-r border-gray-200 dark:border-gray-700">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Wednesday</p>
+                        <p class="text-2xl font-bold mb-1">19</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                    
+                    <!-- Thursday -->
+                    <div class="py-4 border-r border-gray-200 dark:border-gray-700">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Thursday</p>
+                        <p class="text-2xl font-bold mb-1">20</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                    
+                    <!-- Friday -->
+                    <div class="py-4">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Friday</p>
+                        <p class="text-2xl font-bold mb-1">21</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">January</p>
+                    </div>
+                </div>
+                
+                <button class="px-4 py-6 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Match Schedule List -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+            <!-- Match 1 -->
+            <div class="border-b border-gray-200 dark:border-gray-700 p-4 grid grid-cols-7 md:grid-cols-10 items-center hover:bg-gray-50 dark:hover:bg-gray-750">
+                <div class="col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    18:30
+                </div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-end text-right">
+                    <div class="text-right mr-3 font-medium">FTMM</div>
+                    <div class="team-logo">
+                        <img src="asset/ftmm.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="col-span-1 text-center font-bold">88</div>
+                <div class="col-span-1 text-center font-bold">90</div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-start text-left">
+                    <div class="team-logo placeholder" id="logo-team2-match1">
+                        <img src="asset/bemfst.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left ml-3 font-medium">FST</div>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    FT
+                </div>
+            </div>
+            
+            <!-- Match 2 -->
+            <div class="border-b border-gray-200 dark:border-gray-700 p-4 grid grid-cols-7 md:grid-cols-10 items-center hover:bg-gray-50 dark:hover:bg-gray-750">
+                <div class="col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    18:30
+                </div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-end text-right">
+                    <div class="text-right mr-3 font-medium">FTMM</div>
+                    <div class="team-logo placeholder" id="logo-team1-match2">
+                        <img src="asset/ftmm.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="col-span-1 text-center font-bold">88</div>
+                <div class="col-span-1 text-center font-bold">90</div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-start text-left">
+                    <div class="team-logo placeholder" id="logo-team2-match2">
+                        <img src="asset/bemfst.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left ml-3 font-medium">FST</div>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    FT
+                </div>
+            </div>
+            
+            <!-- Match 3 -->
+            <div class="border-b border-gray-200 dark:border-gray-700 p-4 grid grid-cols-7 md:grid-cols-10 items-center hover:bg-gray-50 dark:hover:bg-gray-750">
+                <div class="col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    18:30
+                </div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-end text-right">
+                    <div class="text-right mr-3 font-medium">FTMM</div>
+                    <div class="team-logo placeholder" id="logo-team1-match3">
+                        <img src="asset/ftmm.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="col-span-1 text-center font-bold">88</div>
+                <div class="col-span-1 text-center font-bold">90</div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-start text-left">
+                    <div class="team-logo placeholder" id="logo-team2-match3">
+                        <img src="asset/bemfst.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left ml-3 font-medium">FST</div>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    FT
+                </div>
+            </div>
+            
+            <!-- Match 4 -->
+            <div class="border-b border-gray-200 dark:border-gray-700 p-4 grid grid-cols-7 md:grid-cols-10 items-center hover:bg-gray-50 dark:hover:bg-gray-750">
+                <div class="col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    18:30
+                </div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-end text-right">
+                    <div class="text-right mr-3 font-medium">FTMM</div>
+                    <div class="team-logo placeholder" id="logo-team1-match4">
+                        <img src="asset/ftmm.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="col-span-1 text-center font-bold">88</div>
+                <div class="col-span-1 text-center font-bold">90</div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-start text-left">
+                    <div class="team-logo placeholder" id="logo-team2-match4">
+                        <img src="asset/bemfst.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left ml-3 font-medium">FST</div>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    FT
+                </div>
+            </div>
+            
+            <!-- Match 5 -->
+            <div class="border-b border-gray-200 dark:border-gray-700 p-4 grid grid-cols-7 md:grid-cols-10 items-center hover:bg-gray-50 dark:hover:bg-gray-750">
+                <div class="col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    18:30
+                </div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-end text-right">
+                    <div class="text-right mr-3 font-medium">FTMM</div>
+                    <div class="team-logo placeholder" id="logo-team1-match5">
+                        <img src="asset/ftmm.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="col-span-1 text-center font-bold">88</div>
+                <div class="col-span-1 text-center font-bold">90</div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-start text-left">
+                    <div class="team-logo placeholder" id="logo-team2-match5">
+                        <img src="asset/bemfst.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left ml-3 font-medium">FST</div>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    FT
+                </div>
+            </div>
+            
+            <!-- Match 6 -->
+            <div class="p-4 grid grid-cols-7 md:grid-cols-10 items-center hover:bg-gray-50 dark:hover:bg-gray-750">
+                <div class="col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    18:30
+                </div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-end text-right">
+                    <div class="text-right mr-3 font-medium">FTMM</div>
+                    <div class="team-logo placeholder" id="logo-team1-match6">
+                        <img src="asset/ftmm.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="col-span-1 text-center font-bold">88</div>
+                <div class="col-span-1 text-center font-bold">90</div>
+                <div class="col-span-2 md:col-span-3 flex items-center justify-start text-left">
+                    <div class="team-logo placeholder" id="logo-team2-match6">
+                        <img src="asset/bemfst.png" alt="Team Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left ml-3 font-medium">FST</div>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center font-medium text-gray-500 dark:text-gray-400">
+                    FT
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <div class="flex items-center mb-2">
+                    <img 
+                        src="asset/Logo UNAIR.png" 
+                        alt="Campus Arena Logo" 
+                        class="w-10 h-10 rounded-full mr-2 object-cover"
+                    >
+                    <div class="text-2xl font-bold tracking-wider">CAMPUS ARENA</div>
+                </div>
+                <div class="text-sm text-gray-400 mb-6">
+                    <p>Presented By:</p>
+                    <p class="text-lg font-semibold">Universitas Airlangga</p>
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="hover:text-primary"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="text-xs text-gray-400">
+                    <p>&copy; 2023 Campus Arena. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Function to add team logo images
+        function addTeamLogo(elementId, imageUrl) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                // Clear the placeholder styling
+                element.classList.remove('placeholder');
+                // Add the image
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = "Team Logo";
+                img.className = "w-full h-full object-cover";
+                element.appendChild(img);
+            }
+        }
+        
+        /* 
+        * To add team logos later, use the function like this:
+        * addTeamLogo('logo-team1-match1', 'url-to-your-image.jpg');
+        * addTeamLogo('logo-team2-match1', 'url-to-your-image.jpg');
+        * ... and so on for all team logos
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Arena - Sports News & Highlights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#f87171',
+                    }
+                }
+            }
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200">
+    <!-- Header with navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <!-- Logo image - replace the src with your actual logo image URL -->
+                    <img 
+                        src="asset\Logo UNAIR.png"                                                                                                                              
+                        alt="Campus Arena Logo" 
+                        class="w-12 h-12 rounded-full mr-2 object-cover border-2 border-blue-600"
+                        id="header-logo"
+                    >
+                    <a href="#" class="text-2xl font-bold tracking-wider dark:text-white">CAMPUS ARENA</a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="Homepage.html" class="font-medium hover:text-primary transition">Home</a>
+                    <a href="news.html" class="font-medium hover:text-primary transition">News</a>
+                    <a href="video.html" class="font-medium hover:text-primary transition">Video</a>
+                    <a href="schedule_results.html" class="font-medium hover:text-primary transition">Schedule & Results</a>
+                    <a href="loginpage.html" class="font-medium text-blue-600 transition" id="header-login-btn">Login</a>
+                    <div class="relative">
+                        <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </nav>
+                
+                <button class="md:hidden text-gray-800 dark:text-white" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu, hidden by default -->
+            <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
+                <a href="Homepage.html" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="news.html" class="block py-2 hover:text-primary transition">News</a>
+                <a href="video.html" class="block py-2 hover:text-primary transition">Video</a>
+                <a href="schedule_results.html" class="block py-2 hover:text-primary transition">Schedule & Results</a>
+                <a href="loginpage.html" class="block py-2 text-blue-600 transition" id="mobile-login-btn">Login</a>
+                <div class="relative mt-2">
+                    <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
+                    <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex flex-col md:flex-row">
+        <!-- Latest News Section -->
+        <div class="md:w-2/3 md:pr-8">
+            <h2 class="text-3xl font-bold mb-6">Latest News</h2>
+            
+            <div class="space-y-8">
+                <!-- News Item 1 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden">
+                    <div class="md:w-1/3 h-48 md:h-auto">
+                        <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Totalitas, Universitas Airlangga memenangkan Pertandingan SoftBall International" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-4">
+                        <h3 class="text-xl font-bold mb-2">Totalitas, Universitas Airlangga memenangkan Pertandingan SoftBall International</h3>
+                        <div class="text-primary text-sm mb-2">06 Maret 2023 | UKM SoftBall</div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3">
+                            Mahasiswa Universitas Airlangga kembali mengharumkan dunia dengan kemenangan atas SoftBall Monash University dari Australia dengan score 31-30. Hal ini membuat Universitas Airlangga menjadi sangat maju dalam olahraga.
+                        </p>
+                        <a href="#" class="text-primary hover:underline font-medium">Read more →</a>
+                    </div>
+                </div>
+                
+                <!-- News Item 2 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden">
+                    <div class="md:w-1/3 h-48 md:h-auto">
+                        <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Totalitas, Universitas Airlangga memenangkan Pertandingan SoftBall International" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-4">
+                        <h3 class="text-xl font-bold mb-2">Totalitas, Universitas Airlangga memenangkan Pertandingan SoftBall International</h3>
+                        <div class="text-primary text-sm mb-2">05 Maret 2023 | UKM SoftBall</div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3">
+                            Mahasiswa Universitas Airlangga kembali mengharumkan dunia dengan kemenangan atas SoftBall Monash University dari Australia dengan score 31-30. Hal ini membuat Universitas Airlangga menjadi sangat maju dalam olahraga.
+                        </p>
+                        <a href="#" class="text-primary hover:underline font-medium">Read more →</a>
+                    </div>
+                </div>
+                
+                <!-- News Item 3 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden">
+                    <div class="md:w-1/3 h-48 md:h-auto">
+                        <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Totalitas, Universitas Airlangga memenangkan Pertandingan SoftBall International" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-4">
+                        <h3 class="text-xl font-bold mb-2">Totalitas, Universitas Airlangga memenangkan Pertandingan SoftBall International</h3>
+                        <div class="text-primary text-sm mb-2">04 Maret 2023 | UKM SoftBall</div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3">
+                            Mahasiswa Universitas Airlangga kembali mengharumkan dunia dengan kemenangan atas SoftBall Monash University dari Australia dengan score 31-30. Hal ini membuat Universitas Airlangga menjadi sangat maju dalam olahraga.
+                        </p>
+                        <a href="#" class="text-primary hover:underline font-medium">Read more →</a>
+                    </div>
+                </div>
+                
+                <!-- News Item 4 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden">
+                    <div class="md:w-1/3 h-48 md:h-auto">
+                        <div class="w-full h-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
+                            <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 p-4">
+                        <h3 class="text-xl font-bold mb-2">Campus Basketball Team Secures League Championship</h3>
+                        <div class="text-primary text-sm mb-2">03 Maret 2023 | Basketball</div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3">
+                            After an impressive season with only two losses, our campus basketball team defeated their archrivals in a thrilling finale to win the championship. The team showcased exceptional skill and determination throughout the tournament.
+                        </p>
+                        <a href="#" class="text-primary hover:underline font-medium">Read more →</a>
+                    </div>
+                </div>
+                
+                <!-- News Item 5 -->
+                <div class="flex flex-col md:flex-row bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden">
+                    <div class="md:w-1/3 h-48 md:h-auto">
+                        <div class="w-full h-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
+                            <svg class="w-full h-full text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">
+                                <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 p-4">
+                        <h3 class="text-xl font-bold mb-2">New Sports Complex Construction to Begin Next Month</h3>
+                        <div class="text-primary text-sm mb-2">02 Maret 2023 | Campus News</div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3">
+                            The university has announced plans for a state-of-the-art sports complex that will feature Olympic-sized swimming pools, basketball courts, and other facilities to support our growing athletics program.
+                        </p>
+                        <a href="#" class="text-primary hover:underline font-medium">Read more →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-8">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-primary text-white">1</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700">2</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700">3</a>
+                    <span class="px-3 py-2 text-gray-600 dark:text-gray-400">...</span>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700">10</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="md:w-1/3 mt-8 md:mt-0">
+            <!-- Popular Right Now Section -->
+            <div class="bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-red-600 text-white py-2 px-4 font-bold text-center">
+                    POPULAR RIGHT NOW
+                </div>
+                <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <!-- Popular Item 1 -->
+                    <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-24 h-16 mr-3 bg-gray-300 dark:bg-gray-700 overflow-hidden">
+                                <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Popular news" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-sm">Who is the best PF in NBA 2K23?</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">2hrs ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Item 2 -->
+                    <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-24 h-16 mr-3 bg-gray-300 dark:bg-gray-700 overflow-hidden">
+                                <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Popular news" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-sm">Revisiting Jake Paul vs. AnEsonGib fight ahead of Gib's bout vs. Austin McBroom</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">3hrs ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Item 3 -->
+                    <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-24 h-16 mr-3 bg-gray-300 dark:bg-gray-700 overflow-hidden">
+                                <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Popular news" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-sm">James Harden no longer highest-rated SG in NBA 2K</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">5hrs ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Item 4 -->
+                    <div class="p-4 hover:bg-gray-50 dark:hover:bg-gray-800">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-24 h-16 mr-3 bg-gray-300 dark:bg-gray-700 overflow-hidden">
+                                <img src="https://pfst.cf2.poecdn.net/base/image/7eb7b84e87af258284e1212fd4dbe90532daeb8c1980b93732668a1c112de2f9?w=850&h=610" alt="Popular news" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-sm">USMNT roster for September World Cup tuneups unveiled</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">7hrs ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories -->
+            <div class="bg-white dark:bg-darkCard rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-gray-800 text-white py-2 px-4 font-bold">
+                    CATEGORIES
+                </div>
+                <div class="p-4">
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Basketball</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Soccer</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Volleyball</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Swimming</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Softball</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Campus Events</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Tournaments</a>
+                        <a href="#" class="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-sm hover:bg-primary hover:text-white transition">Student Athletes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <!-- Footer logo - use the same image as the header -->
+                <div class="flex items-center mb-2">
+                    <img 
+                        src="asset/Logo UNAIR.png" 
+                        alt="Campus Arena Logo" 
+                        class="w-10 h-10 rounded-full mr-2 object-cover border-2 border-blue-600"
+                    >
+                    <div class="text-2xl font-bold tracking-wider">CAMPUS ARENA</div>
+                </div>
+                <div class="text-sm text-gray-400 mb-6">
+                    <p>Presented By:</p>
+                    <p class="text-lg font-semibold">Universitas Airlangga</p>
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="hover:text-primary"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="text-xs text-gray-400">
+                    <p>&copy; 2023 Campus Arena. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.hidden.md\\:hidden');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

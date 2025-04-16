@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Arena - Video</title>
+    <title>Campus Arena - Sports News & Highlights</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -14,22 +14,16 @@
                     colors: {
                         primary: '#5D5CDE',
                         secondary: '#f87171',
-                        blue: {
-                            login: '#0037A9'
-                        },
-                        red: {
-                            google: '#e53e3e'
-                        }
                     }
                 }
             }
         }
 
         // Check for dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             document.documentElement.classList.add('dark');
         }
-        
+
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
             if (event.matches) {
                 document.documentElement.classList.add('dark');
@@ -38,48 +32,29 @@
             }
         });
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-        
-        .pixel-font {
-            font-family: 'Press Start 2P', cursive;
-        }
-        
-        .video-card:hover .play-icon {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.2);
-        }
-        
-        .play-icon {
-            opacity: 0.8;
-            transition: all 0.3s ease;
-            transform: translate(-50%, -50%) scale(1);
-        }
-    </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200 min-h-screen flex flex-col">
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200">
     <!-- Header with navigation -->
-    <header class="bg-white dark:bg-gray-800 shadow-md">
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center mr-2">
-                        <div class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
-                            <div class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center">
-                                <span class="text-blue-800 font-bold text-xs">UA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="text-2xl font-bold pixel-font tracking-wider dark:text-white">CAMPUS ARENA</a>
+                    <!-- Logo image - replace the src with your actual logo image URL -->
+                    <img 
+                        src="asset\Logo UNAIR.png"                                                                                                                              
+                        alt="Campus Arena Logo" 
+                        class="w-12 h-12 rounded-full mr-2 object-cover border-2 border-blue-600"
+                        id="header-logo"
+                    >
+                    <a href="#" class="text-2xl font-bold tracking-wider dark:text-white">CAMPUS ARENA</a>
                 </div>
                 
                 <nav class="hidden md:flex space-x-6 items-center">
-                    <a href="#" class="font-medium hover:text-primary transition">Home</a>
-                    <a href="#" class="font-medium hover:text-primary transition">News</a>
-                    <a href="#" class="font-medium text-primary transition">Video</a>
-                    <a href="#" class="font-medium hover:text-primary transition">Schedule &amp; Results</a>
-                    <a href="#" class="font-medium hover:text-primary transition">Profile Athletes</a>
-                    <a href="#" class="font-medium hover:text-primary transition">Login</a>
+                    <a href="Homepage.html" class="font-medium hover:text-primary transition">Home</a>
+                    <a href="news.html" class="font-medium hover:text-primary transition">News</a>
+                    <a href="video.html" class="font-medium hover:text-primary transition">Video</a>
+                    <a href="schedule_results.html" class="font-medium hover:text-primary transition">Schedule & Results</a>
+                    <a href="loginpage.html" class="font-medium text-blue-600 transition" id="header-login-btn">Login</a>
                     <div class="relative">
                         <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
                         <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
@@ -93,12 +68,11 @@
             
             <!-- Mobile menu, hidden by default -->
             <div class="md:hidden hidden pt-4 pb-2" id="mobile-menu">
-                <a href="#" class="block py-2 hover:text-primary transition">Home</a>
-                <a href="#" class="block py-2 hover:text-primary transition">News</a>
-                <a href="#" class="block py-2 text-primary transition">Video</a>
-                <a href="#" class="block py-2 hover:text-primary transition">Schedule &amp; Results</a>
-                <a href="#" class="block py-2 hover:text-primary transition">Profile Athletes</a>
-                <a href="#" class="block py-2 hover:text-primary transition">Login</a>
+                <a href="Homepage.html" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="news_klik.html" class="block py-2 hover:text-primary transition">News</a>
+                <a href="video.html" class="block py-2 hover:text-primary transition">Video</a>
+                <a href="schedule_results.html" class="block py-2 hover:text-primary transition">Schedule & Results</a>
+                <a href="loginpage.html" class="block py-2 text-blue-600 transition" id="mobile-login-btn">Login</a>
                 <div class="relative mt-2">
                     <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
                     <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
