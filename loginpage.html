@@ -22,12 +22,10 @@
                 }
             }
         }
-
         // Check for dark mode preference
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             document.documentElement.classList.add('dark');
         }
-
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
             if (event.matches) {
                 document.documentElement.classList.add('dark');
@@ -37,14 +35,15 @@
         });
     </script>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200 min-h-screen flex flex-col">
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition-colors duration-200 flex flex-col min-h-screen">
     <!-- Header with navigation -->
-    <header class="bg-white dark:bg-gray-800 shadow-md">
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <img src="asset/Logo UNAIR.png" alt="Logo" class="h-12 w-12 rounded-full border-2 border-blue-500">
-                        <span class="ml-3 text-xl font-bold">CAMPUS ARENA</span>
+                    <img src="asset/Logo UNAIR.png" alt="Campus Arena Logo" class="h-12 w-12 rounded-full mr-2 object-cover border-2 border-blue-600" id="header-logo">
+                    <a href="#" class="text-2xl font-bold tracking-wider dark:text-white">CAMPUS ARENA                         
+                    </a>
                 </div>
                 
                 <nav class="hidden md:flex space-x-6 items-center">
@@ -79,7 +78,6 @@
             </div>
         </div>
     </header>
-
     <!-- Main content with login form -->
     <main class="flex-grow flex items-center justify-center py-10 px-4">
         <div class="w-full max-w-md">
@@ -134,12 +132,17 @@
             </div>
         </div>
     </main>
-
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-800 text-white py-8 mt-auto">
         <div class="container mx-auto px-4">
             <div class="flex flex-col items-center">
-                <div class="text-2xl font-bold tracking-wider mb-2">CAMPUS ARENA</div>
+                <!-- Keep original size but add blue background circle for the logo -->
+                <div class="flex items-center justify-center mb-2">
+                    <div class="bg-blue-login rounded-full p-1 flex items-center justify-center">
+                        <img src="asset/Logo UNAIR.png" alt="Campus Arena Logo" class="w-10 h-10 rounded-full object-cover border-2 border-white">
+                    </div>
+                    <div class="text-2xl font-bold tracking-wider text-white ml-2">CAMPUS ARENA</div>
+                </div>
                 <div class="text-sm text-gray-400 mb-6">
                     <p>Presented By:</p>
                     <p class="text-lg font-semibold">Universitas Airlangga</p>
@@ -156,16 +159,13 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
         // Close mobile menu when clicking outside
         document.addEventListener('click', (event) => {
             if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
@@ -188,6 +188,4 @@
             alert('Login functionality would be implemented on the server side');
         });
     </script>
-
-
 </body></html>
