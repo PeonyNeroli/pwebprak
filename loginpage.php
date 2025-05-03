@@ -1,9 +1,33 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<?php
+// Start session
+session_start();
+
+// Check if user is already logged in
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    header("location: Homepage.html");
+    exit;
+}
+
+// Check for login error
+if (isset($_SESSION['login_error'])) {
+    $error_message = $_SESSION['login_error'];
+    // Display error as JavaScript alert
+    echo "<script>alert('$error_message');</script>";
+    // Clear the error message
+    unset($_SESSION['login_error']);
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Arena - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -51,7 +75,7 @@
                     <a href="news.html" class="font-medium hover:text-primary transition">News</a>
                     <a href="video.html" class="font-medium hover:text-primary transition">Video</a>
                     <a href="schedule_results.html" class="font-medium hover:text-primary transition">Schedule &amp; Results</a>
-                    <a href="loginpage.html" class="font-medium text-primary transition">Login</a>
+                    <a href="loginpage.php" class="font-medium text-primary transition">Login</a>
                     <div class="relative">
                         <input type="text" placeholder="Search here" class="pl-3 pr-10 py-1 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
                         <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
@@ -70,7 +94,7 @@
                 <a href="#" class="block py-2 hover:text-primary transition">Video</a>
                 <a href="#" class="block py-2 hover:text-primary transition">Schedule &amp; Results</a>
                 <a href="#" class="block py-2 hover:text-primary transition">Profile Athletes</a>
-                <a href="loginpage.html" class="block py-2 text-primary transition">Login</a>
+                <a href="loginpage.php" class="block py-2 text-primary transition">Login</a>
                 <div class="relative mt-2">
                     <input type="text" placeholder="Search here" class="w-full pl-3 pr-10 py-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-base">
                     <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"></i>
@@ -83,15 +107,26 @@
         <div class="w-full max-w-md">
             <h1 class="text-3xl font-bold text-center mb-8">Log in</h1>
             
-            <form>
+            <!-- Login alert message - initially hidden -->
+            <div id="login-alert" class="<?php echo (!empty($_GET['error']) || !empty($_GET['success'])) ? '' : 'hidden'; ?> mb-4 p-4 rounded-md text-center <?php echo (!empty($_GET['error'])) ? 'bg-red-100 text-red-700' : ''; ?> <?php echo (!empty($_GET['success'])) ? 'bg-green-100 text-green-700' : ''; ?>">
+                <?php 
+                if (!empty($_GET['error'])) {
+                    echo htmlspecialchars($_GET['error']);
+                } elseif (!empty($_GET['success'])) {
+                    echo htmlspecialchars($_GET['success']);
+                }
+                ?>
+            </div>
+            
+            <form id="login-form" action="login_process.php" method="post">
                 <!-- Email Input -->
                 <div class="mb-4">
-                    <input type="email" id="email" placeholder="Email" class="w-full px-4 py-3 rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base shadow-sm" required="">
+                    <input type="email" id="email" name="email" placeholder="Email" class="w-full px-4 py-3 rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base shadow-sm" required>
                 </div>
                 
                 <!-- Password Input -->
                 <div class="mb-6">
-                    <input type="password" id="password" placeholder="Password" class="w-full px-4 py-3 rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base shadow-sm" required="">
+                    <input type="password" id="password" name="password" placeholder="Password" class="w-full px-4 py-3 rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base shadow-sm" required>
                 </div>
                 
                 <!-- Login Button -->
@@ -103,7 +138,7 @@
                 
                 <!-- Forgot Password Link -->
                 <div class="text-center mb-8">
-                    <a href="forgot_password.html" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm transition duration-200">
+                    <a href="forgot_password.php" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm transition duration-200">
                         Forgot Password?
                     </a>
                 </div>
@@ -119,7 +154,7 @@
             <!-- Alternative login options -->
             <div class="space-y-3">
                 <!-- Create Account Button -->
-                <button onclick="window.location.href = 'create_account.html';"class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center justify-center">
+                <button onclick="window.location.href = 'create_account.php';" class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center justify-center">
                     <i class="far fa-envelope mr-2"></i>
                     Create Account
                 </button>
@@ -173,19 +208,69 @@
             }
         });
         
-        // Simple form validation
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // In a real application, you would send these values to your server
-            console.log('Login attempt:', { email, password });
-            
-            // For demo purposes only - show success message
-            alert('Login functionality would be implemented on the server side');
+        // AJAX form submission
+        // AJAX form submission with improved error handling
+$(document).ready(function() {
+    $('#login-form').submit(function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const alertBox = $('#login-alert');
+        alertBox.removeClass('hidden bg-red-100 text-red-700 bg-green-100 text-green-700')
+            .addClass('bg-blue-100 text-blue-700')
+            .text('Processing login...');
+        
+        $.ajax({
+            type: 'POST',
+            url: 'login_process.php',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(response) {
+                console.log('Response received:', response);
+                
+                if (response.success) {
+                    // Show success message
+                    alertBox.removeClass('bg-blue-100 text-blue-700 bg-red-100 text-red-700')
+                        .addClass('bg-green-100 text-green-700')
+                        .text(response.message);
+                        
+                    // Redirect after short delay
+                    setTimeout(function() {
+                        window.location.href = response.redirect;
+                    }, 1000);
+                } else {
+                    // Show error message
+                    alertBox.removeClass('bg-blue-100 text-blue-700 bg-green-100 text-green-700')
+                        .addClass('bg-red-100 text-red-700')
+                        .text(response.message || 'Unknown error occurred');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX Error:', status, error);
+                console.log('Response Text:', xhr.responseText);
+                
+                let errorMessage = 'An error occurred. Please try again.';
+                
+                // Try to parse error response if it's JSON
+                try {
+                    const jsonResponse = JSON.parse(xhr.responseText);
+                    if (jsonResponse && jsonResponse.message) {
+                        errorMessage = jsonResponse.message;
+                    }
+                } catch (e) {
+                    // If can't parse JSON, use response text if available
+                    if (xhr.responseText && xhr.responseText.length < 100) {
+                        errorMessage = xhr.responseText;
+                    }
+                }
+                
+                alertBox.removeClass('hidden bg-blue-100 text-blue-700 bg-green-100 text-green-700')
+                    .addClass('bg-red-100 text-red-700')
+                    .text(errorMessage);
+            }
         });
+    });
+}););
     </script>
-</body></html>
+</body>
+</html>
